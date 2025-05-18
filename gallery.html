@@ -234,7 +234,7 @@
             
             <div class="gallery-grid" data-testid="gallery-grid">
                 <!-- Gallery Item 1 -->
-                <div class="gallery-item" data-category="exterior ceramic">
+                <div class="gallery-item" data-category="exterior ceramic" data-testid="gallery-image-item-1">
                     <img src="https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ceramic Pro Coating" class="gallery-img" data-testid="gallery-img-1">
                     <div class="gallery-item-overlay">
                         <div class="gallery-item-category">Exterior</div>
@@ -243,7 +243,7 @@
                 </div>
                 
                 <!-- Gallery Item 2 -->
-                <div class="gallery-item" data-category="interior">
+                <div class="gallery-item" data-category="interior" data-testid="gallery-image-item-2">
                     <img src="https://images.unsplash.com/photo-1583935115064-3785d46589ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Luxury Interior Rejuvenation" class="gallery-img">
                     <div class="gallery-item-overlay">
                         <div class="gallery-item-category">Interior</div>
@@ -252,7 +252,7 @@
                 </div>
                 
                 <!-- Gallery Item 3 -->
-                <div class="gallery-item" data-category="exterior">
+                <div class="gallery-item" data-category="exterior" data-testid="gallery-image-item-3">
                     <img src="https://images.unsplash.com/photo-1605618313023-d9fund9f5d8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Premium Hand Wash" class="gallery-img">
                     <div class="gallery-item-overlay">
                         <div class="gallery-item-category">Exterior</div>
@@ -354,14 +354,14 @@
     </section>
     
     <!-- Lightbox for Gallery -->
-    <div class="lightbox">
+    <div class="lightbox" data-testid="lightbox-container">
         <div class="lightbox-content">
-            <img src="" alt="Gallery Image" class="lightbox-img">
+            <img src="" alt="Gallery Image" class="lightbox-img" data-testid="lightbox-image">
             <div class="lightbox-controls">
-                <div class="lightbox-prev"><i class="fas fa-chevron-left"></i></div>
-                <div class="lightbox-next"><i class="fas fa-chevron-right"></i></div>
+                <div class="lightbox-prev" data-testid="lightbox-prev"><i class="fas fa-chevron-left"></i></div>
+                <div class="lightbox-next" data-testid="lightbox-next"><i class="fas fa-chevron-right"></i></div>
             </div>
-            <div class="lightbox-close">&times;</div>
+            <div class="lightbox-close" data-testid="lightbox-close">&times;</div>
         </div>
     </div>
     

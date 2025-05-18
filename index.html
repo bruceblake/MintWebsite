@@ -70,72 +70,72 @@
     <section class="hero" data-testid="hero-section" style="background-image: url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
         <div class="hero-content">
             <h1 class="hero-title" data-testid="hero-title">Experience Perfection</h1>
-            <p class="hero-subtitle">Mint Vehicle Detailing provides premium car care services with unmatched attention to detail</p>
+            <p class="hero-subtitle" data-testid="hero-subtitle">Mint Vehicle Detailing provides premium car care services with unmatched attention to detail</p>
             <div class="hero-buttons">
                 <a href="quote.html" class="btn btn-primary btn-lg" data-testid="hero-quote-btn">Get Your Free Quote Today</a>
-                <a href="services.html" class="btn btn-outline btn-lg">Explore Our Services</a>
+                <a href="services.html" class="btn btn-outline btn-lg" data-testid="hero-explore-btn">Explore Our Services</a>
             </div>
         </div>
     </section>
     
     <!-- Introduction Section -->
-    <section class="section bg-light">
+    <section class="section bg-light" data-testid="intro-section">
         <div class="container">
             <h2 class="section-title">Welcome to Mint Detailing</h2>
             <div class="text-center" style="max-width: 800px; margin: 0 auto;">
-                <p>Passion-Driven Detailing for a Flawless Finish. At Mint, we believe your vehicle deserves the very best care. Our professional detailing services combine industry-leading techniques with meticulous attention to detail, ensuring your vehicle looks and feels better than new.</p>
+                <p data-testid="intro-text">Passion-Driven Detailing for a Flawless Finish. At Mint, we believe your vehicle deserves the very best care. Our professional detailing services combine industry-leading techniques with meticulous attention to detail, ensuring your vehicle looks and feels better than new.</p>
             </div>
         </div>
     </section>
     
     <!-- Services Overview Section -->
-    <section class="section bg-grey">
+    <section class="section bg-grey" data-testid="services-overview-section">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
             <div class="services-overview">
                 <!-- Service Card 1 -->
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1603883055407-968560f7522b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Interior Detailing" class="service-card-img">
+                <div class="service-card" data-testid="service-card-interior">
+                    <img src="https://images.unsplash.com/photo-1603883055407-968560f7522b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Interior Detailing" class="service-card-img" data-testid="service-card-interior-image">
                     <div class="service-card-content">
-                        <h3 class="service-card-title">Interior Detailing</h3>
-                        <p class="service-card-text">Comprehensive interior cleaning and restoration to remove stains, odors, and refresh your vehicle's cabin.</p>
-                        <a href="services.html#interior" class="btn btn-primary">Learn More</a>
+                        <h3 class="service-card-title" data-testid="service-card-interior-title">Interior Detailing</h3>
+                        <p class="service-card-text" data-testid="service-card-interior-text">Comprehensive interior cleaning and restoration to remove stains, odors, and refresh your vehicle's cabin.</p>
+                        <a href="services.html#interior" class="btn btn-primary" data-testid="service-card-interior-button">Learn More</a>
                     </div>
                 </div>
                 
                 <!-- Service Card 2 -->
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1635600963362-d262be789722?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Exterior Polishing" class="service-card-img">
+                <div class="service-card" data-testid="service-card-exterior">
+                    <img src="https://images.unsplash.com/photo-1635600963362-d262be789722?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Exterior Polishing" class="service-card-img" data-testid="service-card-exterior-image">
                     <div class="service-card-content">
-                        <h3 class="service-card-title">Exterior Polishing</h3>
-                        <p class="service-card-text">Professional paint correction and polishing to remove swirls, scratches, and restore your vehicle's shine.</p>
-                        <a href="services.html#exterior" class="btn btn-primary">Learn More</a>
+                        <h3 class="service-card-title" data-testid="service-card-exterior-title">Exterior Polishing</h3>
+                        <p class="service-card-text" data-testid="service-card-exterior-text">Professional paint correction and polishing to remove swirls, scratches, and restore your vehicle's shine.</p>
+                        <a href="services.html#exterior" class="btn btn-primary" data-testid="service-card-exterior-button">Learn More</a>
                     </div>
                 </div>
                 
                 <!-- Service Card 3 -->
-                <div class="service-card">
-                    <img src="https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ceramic Coating" class="service-card-img">
+                <div class="service-card" data-testid="service-card-ceramic">
+                    <img src="https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ceramic Coating" class="service-card-img" data-testid="service-card-ceramic-image">
                     <div class="service-card-content">
-                        <h3 class="service-card-title">Ceramic Coating</h3>
-                        <p class="service-card-text">Long-lasting protection for your vehicle's paint with advanced ceramic technology for exceptional gloss and durability.</p>
-                        <a href="services.html#coating" class="btn btn-primary">Learn More</a>
+                        <h3 class="service-card-title" data-testid="service-card-ceramic-title">Ceramic Coating</h3>
+                        <p class="service-card-text" data-testid="service-card-ceramic-text">Long-lasting protection for your vehicle's paint with advanced ceramic technology for exceptional gloss and durability.</p>
+                        <a href="services.html#coating" class="btn btn-primary" data-testid="service-card-ceramic-button">Learn More</a>
                     </div>
                 </div>
             </div>
             <div class="text-center" style="margin-top: 40px;">
-                <a href="services.html" class="btn btn-outline">View All Services</a>
+                <a href="services.html" class="btn btn-outline" data-testid="view-all-services-btn">View All Services</a>
             </div>
         </div>
     </section>
     
     <!-- Why Choose Us Section -->
-    <section class="section bg-light">
+    <section class="section bg-light" data-testid="why-choose-section">
         <div class="container">
             <h2 class="section-title">Why Choose Mint?</h2>
             <div class="why-choose-us">
                 <!-- Feature 1 -->
-                <div class="feature">
+                <div class="feature" data-testid="why-choose-point-1">
                     <div class="feature-icon">
                         <i class="fas fa-medal"></i>
                     </div>
@@ -144,7 +144,7 @@
                 </div>
                 
                 <!-- Feature 2 -->
-                <div class="feature">
+                <div class="feature" data-testid="why-choose-point-2">
                     <div class="feature-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
@@ -153,7 +153,7 @@
                 </div>
                 
                 <!-- Feature 3 -->
-                <div class="feature">
+                <div class="feature" data-testid="why-choose-point-3">
                     <div class="feature-icon">
                         <i class="fas fa-car"></i>
                     </div>
@@ -162,7 +162,7 @@
                 </div>
                 
                 <!-- Feature 4 -->
-                <div class="feature">
+                <div class="feature" data-testid="why-choose-point-4">
                     <div class="feature-icon">
                         <i class="fas fa-star"></i>
                     </div>
@@ -276,8 +276,8 @@
                 <div>
                     <h4 class="footer-heading">Contact Us</h4>
                     <ul class="footer-links">
-                        <li class="footer-link-item"><i class="fas fa-phone"></i> <a href="tel:1234567890" class="footer-link">(123) 456-7890</a></li>
-                        <li class="footer-link-item"><i class="fas fa-envelope"></i> <a href="mailto:info@mintdetailing.com" class="footer-link">info@mintdetailing.com</a></li>
+                        <li class="footer-link-item"><i class="fas fa-phone"></i> <a href="tel:1234567890" class="footer-link" data-testid="footer-phone">(123) 456-7890</a></li>
+                        <li class="footer-link-item"><i class="fas fa-envelope"></i> <a href="mailto:info@mintdetailing.com" class="footer-link" data-testid="footer-email">info@mintdetailing.com</a></li>
                     </ul>
                     <h4 class="footer-heading" style="margin-top: 20px;">Follow Us</h4>
                     <div class="social-links">
@@ -289,7 +289,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p class="copyright">Copyright &copy; <span id="current-year">2023</span> Mint Detailing. All Rights Reserved.</p>
+                <p class="copyright" data-testid="footer-copyright">Copyright &copy; <span id="current-year">2023</span> Mint Detailing. All Rights Reserved.</p>
             </div>
         </div>
     </footer>

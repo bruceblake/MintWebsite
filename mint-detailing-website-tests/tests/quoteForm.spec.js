@@ -132,4 +132,113 @@ test.describe('"Get a Free Quote" Form Functionality', () => {
     // you would also verify the redirect to thank-you.html succeeds and that
     // the thank-you page contains expected content
   });
+
+  test.describe('Test 2.6: Input Placeholder Verification', () => {
+    test('Input fields have correct placeholder text', async ({ page }) => {
+      // Check Vehicle Make placeholder
+      const vehicleMake = page.locator('[data-testid="input-vehicle-make"]');
+      await expect(vehicleMake).toBeVisible();
+      expect(await vehicleMake.getAttribute('placeholder')).toBe('e.g. Toyota, BMW, Audi');
+      
+      // Check Vehicle Model placeholder
+      const vehicleModel = page.locator('[data-testid="input-vehicle-model"]');
+      await expect(vehicleModel).toBeVisible();
+      expect(await vehicleModel.getAttribute('placeholder')).toBe('e.g. Camry, X5, A4');
+      
+      // Check Vehicle Year placeholder
+      const vehicleYear = page.locator('[data-testid="input-vehicle-year"]');
+      await expect(vehicleYear).toBeVisible();
+      expect(await vehicleYear.getAttribute('placeholder')).toBe('e.g. 2023');
+      
+      // Check Vehicle Color placeholder if it exists
+      const vehicleColor = page.locator('#color, [name="color"]');
+      if (await vehicleColor.count() > 0) {
+        await expect(vehicleColor).toBeVisible();
+        expect(await vehicleColor.getAttribute('placeholder')).toBe('e.g. Black, Silver, White');
+      }
+      
+      // Check Service Location placeholder if it exists
+      const serviceLocation = page.locator('#location, [name="location"]');
+      if (await serviceLocation.count() > 0) {
+        await expect(serviceLocation).toBeVisible();
+        expect(await serviceLocation.getAttribute('placeholder')).toBe('City, State or Full Address');
+      }
+      
+      // Check Additional Information placeholder
+      const additionalInfo = page.locator('[data-testid="input-message"]');
+      await expect(additionalInfo).toBeVisible();
+      const messagePlaceholder = await additionalInfo.getAttribute('placeholder');
+      
+      // Verify it contains instruction text (may vary slightly in wording)
+      expect(messagePlaceholder).toContain('specific concerns');
+      expect(messagePlaceholder).toContain('requests');
+      expect(messagePlaceholder).toContain('vehicle');
+    });
+  });
+
+  test.describe('Test 2.7: Form Input Field Properties', () => {
+    test('Input fields have correct types and attributes', async ({ page }) => {
+      // Check name field (should be type="text" and required)
+      const nameInput = page.locator('[data-testid="input-name"]');
+      expect(await nameInput.getAttribute('type')).toBe('text');
+      expect(await nameInput.getAttribute('required')).not.toBeNull();
+      
+      // Check email field (should be type="email" and required)
+      const emailInput = page.locator('[data-testid="input-email"]');
+      expect(await emailInput.getAttribute('type')).toBe('email');
+      expect(await emailInput.getAttribute('required')).not.toBeNull();
+      
+      // Check phone field (should be type="tel" and required)
+      const phoneInput = page.locator('[data-testid="input-phone"]');
+      expect(await phoneInput.getAttribute('type')).toBe('tel');
+      expect(await phoneInput.getAttribute('required')).not.toBeNull();
+      
+      // Check vehicle make, model, year (should be type="text" and required)
+      const requiredVehicleFields = [
+        'input-vehicle-make',
+        'input-vehicle-model',
+        'input-vehicle-year'
+      ];
+      
+      for (const fieldId of requiredVehicleFields) {
+        const field = page.locator(`[data-testid="${fieldId}"]`);
+        expect(await field.getAttribute('type')).toBe('text');
+        expect(await field.getAttribute('required')).not.toBeNull();
+      }
+      
+      // Check message field (should be a textarea, but not required)
+      const messageField = page.locator('[data-testid="input-message"]');
+      expect(await messageField.evaluate(el => el.tagName.toLowerCase())).toBe('textarea');
+      // Message field is typically optional
+      expect(await messageField.getAttribute('required')).toBeNull();
+    });
+  });
+
+  test.describe('Test 2.8: Form Label to Input Associations', () => {
+    test('Labels are correctly associated with input fields', async ({ page }) => {
+      // Check all required fields have labels properly associated
+      const fields = [
+        { id: 'name', testId: 'input-name', label: 'Full Name' },
+        { id: 'email', testId: 'input-email', label: 'Email Address' },
+        { id: 'phone', testId: 'input-phone', label: 'Phone Number' },
+        { id: 'vehicle-make', testId: 'input-vehicle-make', label: 'Vehicle Make' },
+        { id: 'vehicle-model', testId: 'input-vehicle-model', label: 'Vehicle Model' },
+        { id: 'vehicle-year', testId: 'input-vehicle-year', label: 'Vehicle Year' },
+      ];
+      
+      for (const field of fields) {
+        // Get the input element
+        const input = page.locator(`[data-testid="${field.testId}"]`);
+        await expect(input).toBeVisible();
+        
+        // Check that the input has the correct ID
+        expect(await input.getAttribute('id')).toBe(field.id);
+        
+        // Get the label element
+        const label = page.locator(`label[for="${field.id}"]`);
+        await expect(label).toBeVisible();
+        await expect(label).toContainText(field.label);
+      }
+    });
+  });
 });
