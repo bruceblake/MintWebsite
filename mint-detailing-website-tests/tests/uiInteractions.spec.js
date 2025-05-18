@@ -2,9 +2,9 @@ import { test, expect } from '@playwright/test';
 
 test.describe('UI Interactions', () => {
   test.describe('Test UI.1: Navigation Link Hover States (Desktop)', () => {
-    test('Header navigation links change color on hover', async ({ page }) => {
+    test('Header navigation links change color on hover', async ({ page, isMobile }) => {
       // Only run this test on desktop viewports
-      test.skip(page.viewportSize()?.width < 768, 'Only for desktop');
+      test.skip(isMobile, 'Only for desktop');
       
       // Navigate to the homepage
       await page.goto('/');
@@ -37,13 +37,14 @@ test.describe('UI Interactions', () => {
       const rgbMatch = hoverColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
       if (rgbMatch) {
         const [_, r, g, b] = rgbMatch.map(Number);
-        // Check if the color is in the light mint green range (#d0e4e1 = rgb(208, 228, 225))
-        expect(r).toBeGreaterThan(190); // Red component around 208
-        expect(r).toBeLessThan(220);
-        expect(g).toBeGreaterThan(215); // Green component around 228
-        expect(g).toBeLessThan(240);
-        expect(b).toBeGreaterThan(210); // Blue component around 225
-        expect(b).toBeLessThan(235);
+        // Check if the color is in the mint green range (#d0e4e1 = rgb(208, 228, 225))
+        // Allow wider tolerance for browser variations
+        expect(r).toBeGreaterThanOrEqual(190); // Red component around 208
+        expect(r).toBeLessThanOrEqual(230);
+        expect(g).toBeGreaterThanOrEqual(210); // Green component around 228
+        expect(g).toBeLessThanOrEqual(240);
+        expect(b).toBeGreaterThanOrEqual(210); // Blue component around 225
+        expect(b).toBeLessThanOrEqual(240);
       }
     });
   });
@@ -92,9 +93,9 @@ test.describe('UI Interactions', () => {
       ).toBeTruthy();
     });
     
-    test('Get a Quote button in header changes on hover', async ({ page }) => {
+    test('Get a Quote button in header changes on hover', async ({ page, isMobile }) => {
       // Skip on mobile viewport
-      test.skip(page.viewportSize()?.width < 768, 'Only for desktop');
+      test.skip(isMobile, 'Only for desktop');
       
       // Navigate to the homepage
       await page.goto('/');

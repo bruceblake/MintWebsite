@@ -227,6 +227,62 @@ test.describe('Gallery Page Tests', () => {
         await expect(slider).toBeVisible();
       }
     });
+    
+    test('Before/After slider interaction works correctly', async ({ page }) => {
+      // Check if before-after section exists
+      const beforeAfterSection = page.locator('[data-testid="before-after-grid"]').or(page.locator('.before-after-grid'));
+      
+      // Skip test if this section doesn't exist on this deployment
+      if (await beforeAfterSection.count() === 0) {
+        test.skip();
+        return;
+      }
+      
+      // Get first comparison container
+      const container = page.locator('.comparison-container').first();
+      const slider = container.locator('.comparison-slider');
+      const overlay = container.locator('.comparison-img-overlay');
+      
+      // Skip if slider doesn't exist
+      if (await slider.count() === 0) {
+        test.skip();
+        return;
+      }
+      
+      // Get container dimensions
+      const containerBox = await container.boundingBox();
+      expect(containerBox).not.toBeNull();
+      const containerWidth = containerBox.width;
+      
+      // Get initial overlay width
+      const initialWidth = await overlay.evaluate(el => parseFloat(window.getComputedStyle(el).width));
+      
+      // Test dragging to 25% position
+      await slider.dragTo(container, { 
+        targetPosition: { x: containerWidth * 0.25, y: 0 } 
+      });
+      
+      // Wait for animation
+      await page.waitForTimeout(100);
+      
+      // Check overlay width is approximately 25%
+      const newWidthAt25 = await overlay.evaluate(el => parseFloat(window.getComputedStyle(el).width));
+      const widthPercentAt25 = newWidthAt25 / containerWidth * 100;
+      expect(widthPercentAt25).toBeCloseTo(25, 1); // Allow 1% tolerance
+      
+      // Test dragging to 75% position
+      await slider.dragTo(container, { 
+        targetPosition: { x: containerWidth * 0.75, y: 0 } 
+      });
+      
+      // Wait for animation
+      await page.waitForTimeout(100);
+      
+      // Check overlay width is approximately 75%
+      const newWidthAt75 = await overlay.evaluate(el => parseFloat(window.getComputedStyle(el).width));
+      const widthPercentAt75 = newWidthAt75 / containerWidth * 100;
+      expect(widthPercentAt75).toBeCloseTo(75, 1); // Allow 1% tolerance
+    });
   });
   
   test.describe('Test G.5: Gallery Item Count Verification', () => {

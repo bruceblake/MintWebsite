@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Services Page Tests', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to the services page before each test
-    await page.goto('/services.html');
+    await page.goto('/services');
     
     // Wait for the main content to load completely
     await page.waitForSelector('.service-category-section', { state: 'visible' });
@@ -60,8 +60,8 @@ test.describe('Services Page Tests', () => {
         await page.waitForTimeout(500);
         
         // Verify only items with matching category are visible
-        const visibleItems = page.locator(`.service-item:not(.hidden)`);
-        const categoryItems = page.locator(`.service-item[data-category*="${category}"]:not(.hidden)`);
+        const visibleItems = page.locator(`.service-item:visible`);
+        const categoryItems = page.locator(`.service-item[data-category="${category}"]:visible`);
         
         expect(await visibleItems.count()).toBe(await categoryItems.count());
         

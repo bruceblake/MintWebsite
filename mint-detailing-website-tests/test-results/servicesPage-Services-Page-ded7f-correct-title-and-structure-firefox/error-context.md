@@ -8,7 +8,7 @@
 ```
 Error: page.goto: NS_ERROR_FILE_NOT_FOUND
 Call log:
-  - navigating to "file:///services.html", waiting until "load"
+  - navigating to "file:///services", waiting until "load"
 
     at /usr/src/app/tests/servicesPage.spec.js:6:16
 ```
@@ -17,7 +17,7 @@ Call log:
 
 ```yaml
 - heading "File not found" [level=1]
-- paragraph: Firefox can’t find the file at /services.html.
+- paragraph: Firefox can’t find the file at /services.
 - paragraph
 - list:
   - listitem: Check the file name for capitalization or other typing errors.
@@ -33,7 +33,7 @@ Call log:
    3 | test.describe('Services Page Tests', () => {
    4 |   test.beforeEach(async ({ page }) => {
    5 |     // Navigate to the services page before each test
->  6 |     await page.goto('/services.html');
+>  6 |     await page.goto('/services');
      |                ^ Error: page.goto: NS_ERROR_FILE_NOT_FOUND
    7 |     
    8 |     // Wait for the main content to load completely
@@ -91,8 +91,8 @@ Call log:
    60 |         await page.waitForTimeout(500);
    61 |         
    62 |         // Verify only items with matching category are visible
-   63 |         const visibleItems = page.locator(`.service-item:not(.hidden)`);
-   64 |         const categoryItems = page.locator(`.service-item[data-category*="${category}"]:not(.hidden)`);
+   63 |         const visibleItems = page.locator(`.service-item:visible`);
+   64 |         const categoryItems = page.locator(`.service-item[data-category="${category}"]:visible`);
    65 |         
    66 |         expect(await visibleItems.count()).toBe(await categoryItems.count());
    67 |         

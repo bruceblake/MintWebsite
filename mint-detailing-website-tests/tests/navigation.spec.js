@@ -34,6 +34,13 @@ test.describe('Core Navigation & Page Accessibility', () => {
     ];
 
     for (const link of navLinks) {
+      // Open mobile menu if on mobile viewport
+      if (isMobile) {
+        const mobileMenuToggle = page.locator('[data-testid="mobile-menu-toggle"]');
+        await mobileMenuToggle.click();
+        await expect(page.locator('[data-testid="nav-menu"]')).toBeVisible(); // Wait for menu to open
+      }
+      
       // Find the navigation link
       const navLink = page.locator(`[data-testid="${link.testId}"]`);
       
