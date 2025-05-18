@@ -5,8 +5,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Navigation Toggle
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    const mobileMenuToggle = document.querySelector('[data-testid="mobile-menu-toggle"]');
+    const navMenu = document.querySelector('[data-testid="nav-menu"]');
     
     if (mobileMenuToggle && navMenu) {
         mobileMenuToggle.addEventListener('click', function() {
@@ -17,12 +17,16 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(event) {
-        const isClickInsideNav = navMenu?.contains(event.target);
-        const isClickOnToggle = mobileMenuToggle?.contains(event.target);
+        // Use same selectors consistently throughout code
+        const navMenuElement = document.querySelector('[data-testid="nav-menu"]');
+        const menuToggleElement = document.querySelector('[data-testid="mobile-menu-toggle"]');
         
-        if (navMenu?.classList.contains('active') && !isClickInsideNav && !isClickOnToggle) {
-            navMenu.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
+        const isClickInsideNav = navMenuElement?.contains(event.target);
+        const isClickOnToggle = menuToggleElement?.contains(event.target);
+        
+        if (navMenuElement?.classList.contains('active') && !isClickInsideNav && !isClickOnToggle) {
+            navMenuElement.classList.remove('active');
+            menuToggleElement.classList.remove('active');
         }
     });
     
@@ -41,9 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 
                 // Close mobile menu after clicking a link
-                if (navMenu?.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
+                const navMenuElement = document.querySelector('[data-testid="nav-menu"]');
+                const menuToggleElement = document.querySelector('[data-testid="mobile-menu-toggle"]');
+                
+                if (navMenuElement?.classList.contains('active')) {
+                    navMenuElement.classList.remove('active');
+                    menuToggleElement.classList.remove('active');
                 }
             }
         });

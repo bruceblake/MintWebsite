@@ -1,0 +1,36 @@
+# Node modules
+node_modules/
+
+# Playwright outputs
+playwright-report/
+test-results/
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env
+.env.local
+.env.*
+
+# Docker related
+Dockerfile
+.dockerignore
+
+# Git related
+.git/
+.gitignore

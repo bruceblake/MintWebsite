@@ -110,36 +110,36 @@
                 <!-- <img src="images/logo.png" alt="Mint Detailing Logo"> -->
                 
                 <!-- Otherwise use text logo -->
-                <a href="index.html" class="logo-text">Mint</a>
+                <a href="index.html" class="logo-text" data-testid="logo">Mint</a>
             </div>
             
             <!-- Navigation -->
-            <nav class="nav-menu">
+            <nav class="nav-menu" data-testid="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="index.html" class="nav-link" data-testid="nav-home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link">About</a>
+                        <a href="about.html" class="nav-link" data-testid="nav-about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="services.html" class="nav-link">Services</a>
+                        <a href="services.html" class="nav-link" data-testid="nav-services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a href="gallery.html" class="nav-link active">Gallery</a>
+                        <a href="gallery.html" class="nav-link active" data-testid="nav-gallery">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a href="testimonials.html" class="nav-link">Testimonials</a>
+                        <a href="testimonials.html" class="nav-link" data-testid="nav-testimonials">Testimonials</a>
                     </li>
                     <li class="nav-item">
-                        <a href="service-area.html" class="nav-link">Service Area</a>
+                        <a href="service-area.html" class="nav-link" data-testid="nav-service-area">Service Area</a>
                     </li>
                 </ul>
-                <a href="quote.html" class="btn btn-primary btn-quote">Get a Free Quote</a>
+                <a href="quote.html" class="btn btn-primary btn-quote" data-testid="nav-quote">Get a Free Quote</a>
             </nav>
             
             <!-- Mobile Menu Toggle -->
-            <div class="mobile-menu-toggle">
+            <div class="mobile-menu-toggle" data-testid="mobile-menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -150,7 +150,7 @@
     <!-- Page Header -->
     <section class="page-header" style="background-image: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=600&q=80');">
         <div class="container">
-            <h1>Photo Gallery</h1>
+            <h1 data-testid="gallery-heading">Photo Gallery</h1>
         </div>
     </section>
     
@@ -178,7 +178,7 @@
             <h2 class="section-title">Before & After Transformations</h2>
             <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">Slide the divider to see the dramatic difference our detailing services make. These interactive comparisons showcase our commitment to excellence.</p>
             
-            <div class="before-after-grid">
+            <div class="before-after-grid" data-testid="before-after-grid">
                 <!-- Before & After 1 -->
                 <div class="before-after-item" data-category="before-after exterior">
                     <div class="comparison-container">
@@ -232,10 +232,10 @@
         <div class="container">
             <h2 class="section-title">Gallery Showcase</h2>
             
-            <div class="gallery-grid">
+            <div class="gallery-grid" data-testid="gallery-grid">
                 <!-- Gallery Item 1 -->
                 <div class="gallery-item" data-category="exterior ceramic">
-                    <img src="https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ceramic Pro Coating" class="gallery-img">
+                    <img src="https://images.unsplash.com/photo-1610647752706-3bb12232b3ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ceramic Pro Coating" class="gallery-img" data-testid="gallery-img-1">
                     <div class="gallery-item-overlay">
                         <div class="gallery-item-category">Exterior</div>
                         <div class="gallery-item-title">Ceramic Pro Coating</div>

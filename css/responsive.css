@@ -5,6 +5,29 @@
 
 /* ========== Media Queries ========== */
 
+/* Desktop Navigation Styles (applied at 993px and up) */
+@media only screen and (min-width: 993px) {
+    .header .nav-menu {
+        position: static;
+        left: auto;
+        top: auto;
+        width: auto;
+        max-width: none;
+        height: auto;
+        background-color: transparent;
+        flex-direction: row;
+        align-items: center;
+        padding: 0;
+        box-shadow: none;
+        overflow-y: visible;
+        display: flex;
+    }
+    
+    .header .mobile-menu-toggle {
+        display: none;
+    }
+}
+
 /* Mobile Navigation Styles (applied at 992px and down) */
 @media only screen and (max-width: 992px) {
     .header {
@@ -18,7 +41,8 @@
     .nav-menu {
         position: fixed;
         top: 70px;
-        left: -100%;
+        left: 0;
+        transform: translateX(-100%); /* Use transform instead of left for better performance */
         width: 80%;
         max-width: 300px;
         height: calc(100vh - 70px);
@@ -27,13 +51,14 @@
         align-items: flex-start;
         padding: 30px 20px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        transition: left 0.3s ease;
+        transition: transform 0.3s ease;
         z-index: 1000;
         overflow-y: auto;
+        display: flex; /* Ensure it's always flex, even when off-screen */
     }
     
     .nav-menu.active {
-        left: 0;
+        transform: translateX(0);
     }
     
     .nav-list {

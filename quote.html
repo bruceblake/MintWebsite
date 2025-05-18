@@ -26,36 +26,36 @@
                 <!-- <img src="images/logo.png" alt="Mint Detailing Logo"> -->
                 
                 <!-- Otherwise use text logo -->
-                <a href="index.html" class="logo-text">Mint</a>
+                <a href="index.html" class="logo-text" data-testid="logo">Mint</a>
             </div>
             
             <!-- Navigation -->
-            <nav class="nav-menu">
+            <nav class="nav-menu" data-testid="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
+                        <a href="index.html" class="nav-link" data-testid="nav-home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="about.html" class="nav-link">About</a>
+                        <a href="about.html" class="nav-link" data-testid="nav-about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a href="services.html" class="nav-link">Services</a>
+                        <a href="services.html" class="nav-link" data-testid="nav-services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a href="gallery.html" class="nav-link">Gallery</a>
+                        <a href="gallery.html" class="nav-link" data-testid="nav-gallery">Gallery</a>
                     </li>
                     <li class="nav-item">
-                        <a href="testimonials.html" class="nav-link">Testimonials</a>
+                        <a href="testimonials.html" class="nav-link" data-testid="nav-testimonials">Testimonials</a>
                     </li>
                     <li class="nav-item">
-                        <a href="service-area.html" class="nav-link">Service Area</a>
+                        <a href="service-area.html" class="nav-link" data-testid="nav-service-area">Service Area</a>
                     </li>
                 </ul>
-                <a href="quote.html" class="btn btn-primary btn-quote active">Get a Free Quote</a>
+                <a href="quote.html" class="btn btn-primary btn-quote active" data-testid="nav-quote">Get a Free Quote</a>
             </nav>
             
             <!-- Mobile Menu Toggle -->
-            <div class="mobile-menu-toggle">
+            <div class="mobile-menu-toggle" data-testid="mobile-menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -79,8 +79,8 @@
             
             <div class="contact-container">
                 <div class="contact-form-container">
-                    <h2 class="form-title">Request a Quote</h2>
-                    <form id="quote-form" name="quote-request" action="/thank-you.html" method="POST" class="contact-form" netlify netlify-honeypot="bot-field" data-netlify="true">
+                    <h2 class="form-title" data-testid="form-title">Request a Quote</h2>
+                    <form id="quote-form" name="quote-request" action="/thank-you.html" method="POST" class="contact-form" netlify netlify-honeypot="bot-field" data-netlify="true" data-testid="quote-form">
                         <p class="hidden" style="display: none;">
                             <label>Don't fill this out if you're human: <input name="bot-field" /></label>
                         </p>
@@ -92,13 +92,13 @@
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label for="name" class="form-label">Full Name *</label>
-                                        <input type="text" id="name" name="name" class="form-control" required>
+                                        <input type="text" id="name" name="name" class="form-control" required data-testid="input-name">
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label for="email" class="form-label">Email Address *</label>
-                                        <input type="email" id="email" name="email" class="form-control" required>
+                                        <input type="email" id="email" name="email" class="form-control" required data-testid="input-email">
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label for="phone" class="form-label">Phone Number *</label>
-                                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                                        <input type="tel" id="phone" name="phone" class="form-control" required data-testid="input-phone">
                                     </div>
                                 </div>
                                 <div class="form-col">
@@ -125,13 +125,13 @@
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label for="vehicle-make" class="form-label">Vehicle Make *</label>
-                                        <input type="text" id="vehicle-make" name="vehicle-make" class="form-control" placeholder="e.g. Toyota, BMW, Audi" required>
+                                        <input type="text" id="vehicle-make" name="vehicle-make" class="form-control" placeholder="e.g. Toyota, BMW, Audi" required data-testid="input-vehicle-make">
                                     </div>
                                 </div>
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label for="vehicle-model" class="form-label">Vehicle Model *</label>
-                                        <input type="text" id="vehicle-model" name="vehicle-model" class="form-control" placeholder="e.g. Camry, X5, A4" required>
+                                        <input type="text" id="vehicle-model" name="vehicle-model" class="form-control" placeholder="e.g. Camry, X5, A4" required data-testid="input-vehicle-model">
                                     </div>
                                 </div>
                             </div>
@@ -139,7 +139,7 @@
                                 <div class="form-col">
                                     <div class="form-group">
                                         <label for="vehicle-year" class="form-label">Vehicle Year *</label>
-                                        <input type="text" id="vehicle-year" name="vehicle-year" class="form-control" placeholder="e.g. 2023" required>
+                                        <input type="text" id="vehicle-year" name="vehicle-year" class="form-control" placeholder="e.g. 2023" required data-testid="input-vehicle-year">
                                     </div>
                                 </div>
                                 <div class="form-col">
@@ -193,7 +193,7 @@
                             <h3 class="section-label">Service Information</h3>
                             <div class="form-group">
                                 <label class="form-label">Services Interested In (Select all that apply) *</label>
-                                <div class="services-options">
+                                <div class="services-options" data-testid="services-options">
                                     <!-- Interior Services -->
                                     <div class="form-check">
                                         <input type="checkbox" id="interior-deep-clean" name="services[]" value="Interior Deep Clean" class="form-check-input">
@@ -248,11 +248,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="message" class="form-label">Additional Information or Requests</label>
-                                <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell us about any specific concerns, special requests, or details about your vehicle's condition that will help us provide an accurate quote."></textarea>
+                                <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell us about any specific concerns, special requests, or details about your vehicle's condition that will help us provide an accurate quote." data-testid="input-message"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="source" class="form-label">How did you hear about us?</label>
-                                <select id="source" name="source" class="form-select">
+                                <select id="source" name="source" class="form-select" data-testid="input-referral">
                                     <option value="" selected disabled>Please select</option>
                                     <option value="Google Search">Google Search</option>
                                     <option value="Social Media">Social Media</option>
@@ -265,7 +265,7 @@
                         </div>
                         
                         <div class="form-actions">
-                            <button type="submit" class="btn btn-primary btn-lg">Submit Quote Request</button>
+                            <button type="submit" class="btn btn-primary btn-lg" data-testid="submit-button">Submit Quote Request</button>
                         </div>
                     </form>
                 </div>
