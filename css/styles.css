@@ -1146,6 +1146,8 @@ textarea.form-control {
     max-width: 40%;
     position: relative;
     overflow: hidden;
+    display: block;
+    visibility: visible;
 }
 
 .service-item-image img {
@@ -1153,6 +1155,8 @@ textarea.form-control {
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    display: block;
+    visibility: visible;
 }
 
 .service-item:hover .service-item-image img {

@@ -50,7 +50,10 @@ test.describe('UI Interactions', () => {
   });
   
   test.describe('Test UI.2: Button Hover States (Primary CTAs)', () => {
-    test('Primary buttons change appearance on hover', async ({ page }) => {
+    test('Primary buttons change appearance on hover', async ({ page, isMobile }) => {
+      // Skip on mobile viewport
+      test.skip(isMobile, 'Hover interactions are not applicable on mobile');
+      
       // Navigate to the homepage
       await page.goto('/');
       
@@ -268,12 +271,16 @@ test.describe('UI Interactions', () => {
       
       // Get the initial state of the overlay (typically moved down with translateY)
       const overlay = galleryItem.locator('.gallery-item-overlay');
-      const initialTransform = await overlay.evaluate(el => {
-        return window.getComputedStyle(el).transform;
+      const initialState = await overlay.evaluate(el => {
+        const style = window.getComputedStyle(el);
+        return {
+          transform: style.transform,
+          opacity: style.opacity
+        };
       });
       
-      // Verify initial state has transform
-      expect(initialTransform).toContain('translateY');
+      // Verify initial state - overlay should be hidden
+      expect(parseFloat(initialState.opacity)).toBe(0);
       
       // Hover over the gallery item
       await galleryItem.hover();
@@ -281,13 +288,17 @@ test.describe('UI Interactions', () => {
       // Give the transition time to complete
       await page.waitForTimeout(300);
       
-      // Get the hover state transform of the overlay
-      const hoverTransform = await overlay.evaluate(el => {
-        return window.getComputedStyle(el).transform;
+      // Get the hover state of the overlay
+      const hoverState = await overlay.evaluate(el => {
+        const style = window.getComputedStyle(el);
+        return {
+          transform: style.transform,
+          opacity: style.opacity
+        };
       });
       
-      // Verify the overlay transform changed on hover (should be translateY(0) or none)
-      expect(hoverTransform).not.toEqual(initialTransform);
+      // Verify the overlay becomes visible on hover
+      expect(parseFloat(hoverState.opacity)).toBeGreaterThan(0);
     });
   });
   

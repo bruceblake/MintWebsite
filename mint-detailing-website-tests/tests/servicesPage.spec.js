@@ -166,8 +166,8 @@ test.describe('Services Page Tests', () => {
   
   test.describe('Test S.4: Verifying Specific Services', () => {
     test('Interior detailing service is listed with correct details', async ({ page }) => {
-      // Find the Interior Detailing service
-      const interiorService = page.locator('.service-item', { has: page.locator('h3', { hasText: /Interior Detailing/i }) });
+      // Find the Interior Detailing service (using Interior Deep Clean as the service name)
+      const interiorService = page.locator('.service-item', { has: page.locator('h3', { hasText: /Interior Deep Clean/i }) });
       
       // Skip if this specific service isn't in this deployment
       if (await interiorService.count() === 0) {
@@ -179,7 +179,7 @@ test.describe('Services Page Tests', () => {
       
       // Verify service name
       const serviceName = interiorService.locator('h3');
-      await expect(serviceName).toContainText(/Interior Detailing/i);
+      await expect(serviceName).toContainText(/Interior Deep Clean/i);
       
       // Verify service has a description
       const serviceDesc = interiorService.locator('p.service-description');
