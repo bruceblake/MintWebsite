@@ -92,7 +92,17 @@
             <p class="text-center" style="max-width: 700px; margin: 0 auto 30px;">We provide mobile detailing services within the highlighted area. For locations outside this radius, please contact us for special arrangements.</p>
             
             <!-- Map Container -->
-            <div id="service-map"></div>
+            <div id="service-map" style="height: 500px; position: relative;">
+                <!-- Fallback static map image -->
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                     alt="Los Angeles Service Area Map - Mint Detailing serves a 30-mile radius from downtown Los Angeles including Beverly Hills, Santa Monica, Long Beach, and surrounding areas" 
+                     style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 2; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 8px;">
+                    <h3>Service Area</h3>
+                    <p>We serve a 30-mile radius from downtown Los Angeles</p>
+                    <p><small>Interactive map coming soon</small></p>
+                </div>
+            </div>
             
             <div class="map-legend">
                 <div class="legend-item">
@@ -232,14 +242,14 @@
                 <div>
                     <h4 class="footer-heading">Contact Us</h4>
                     <ul class="footer-links">
-                        <li class="footer-link-item"><i class="fas fa-phone"></i> <a href="tel:1234567890" class="footer-link">(123) 456-7890</a></li>
-                        <li class="footer-link-item"><i class="fas fa-envelope"></i> <a href="mailto:info@mintdetailing.com" class="footer-link">info@mintdetailing.com</a></li>
+                        <li class="footer-link-item"><i class="fas fa-phone"></i> <a href="tel:1234567890" class="footer-link" data-testid="footer-phone">(123) 456-7890</a></li>
+                        <li class="footer-link-item"><i class="fas fa-envelope"></i> <a href="mailto:info@mintdetailing.com" class="footer-link" data-testid="footer-email">info@mintdetailing.com</a></li>
                     </ul>
                     <h4 class="footer-heading" style="margin-top: 20px;">Follow Us</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" data-testid="social-link-facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" data-testid="social-link-instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" data-testid="social-link-twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
