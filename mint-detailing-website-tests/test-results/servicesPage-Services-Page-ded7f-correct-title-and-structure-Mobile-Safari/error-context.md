@@ -1,32 +1,16 @@
 # Test info
 
 - Name: Services Page Tests >> Test S.1: Services Page Structure >> Services page has correct title and structure
-- Location: /home/proxyie/MySoftware/MintWebsite/mint-detailing-website-tests/tests/servicesPage.spec.js:13:9
+- Location: /usr/src/app/tests/servicesPage.spec.js:13:9
 
 # Error details
 
 ```
-Error: browserType.launch: 
-╔══════════════════════════════════════════════════════╗
-║ Host system is missing dependencies to run browsers. ║
-║ Missing libraries:                                   ║
-║     libicudata.so.66                                 ║
-║     libicui18n.so.66                                 ║
-║     libicuuc.so.66                                   ║
-║     libxslt.so.1                                     ║
-║     libwoff2dec.so.1.0.2                             ║
-║     libopus.so.0                                     ║
-║     libwebpdemux.so.2                                ║
-║     libharfbuzz-icu.so.0                             ║
-║     libwebpmux.so.3                                  ║
-║     libwebp.so.6                                     ║
-║     libenchant-2.so.2                                ║
-║     libhyphen.so.0                                   ║
-║     libgudev-1.0.so.0                                ║
-║     libffi.so.7                                      ║
-║     libevdev.so.2                                    ║
-║     libx264.so                                       ║
-╚══════════════════════════════════════════════════════╝
+Error: page.goto: Error opening file /services: No such file or directory
+Call log:
+  - navigating to "file:///services", waiting until "load"
+
+    at /usr/src/app/tests/servicesPage.spec.js:6:16
 ```
 
 # Test source
@@ -37,15 +21,15 @@ Error: browserType.launch:
    3 | test.describe('Services Page Tests', () => {
    4 |   test.beforeEach(async ({ page }) => {
    5 |     // Navigate to the services page before each test
-   6 |     await page.goto('/services');
+>  6 |     await page.goto('/services');
+     |                ^ Error: page.goto: Error opening file /services: No such file or directory
    7 |     
    8 |     // Wait for the main content to load completely
    9 |     await page.waitForSelector('.service-category-section', { state: 'visible' });
    10 |   });
    11 |   
    12 |   test.describe('Test S.1: Services Page Structure', () => {
->  13 |     test('Services page has correct title and structure', async ({ page }) => {
-      |         ^ Error: browserType.launch: 
+   13 |     test('Services page has correct title and structure', async ({ page }) => {
    14 |       // Verify page title
    15 |       const title = page.locator('h1');
    16 |       await expect(title).toBeVisible();
@@ -139,11 +123,4 @@ Error: browserType.launch:
   104 |         const nameText = await serviceName.textContent();
   105 |         expect(nameText?.trim().length).toBeGreaterThan(0);
   106 |         
-  107 |         // Check service description
-  108 |         const serviceDesc = serviceItem.locator('p.service-description');
-  109 |         await expect(serviceDesc).toBeVisible();
-  110 |         
-  111 |         // Check included list if it exists
-  112 |         const includedList = serviceItem.locator('ul.includes-list');
-  113 |         if (await includedList.count() > 0) {
 ```
