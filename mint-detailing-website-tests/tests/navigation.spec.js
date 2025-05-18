@@ -36,8 +36,11 @@ test.describe('Core Navigation & Page Accessibility', () => {
       // Click the navigation link
       await page.locator(`[data-testid="${link.testId}"]`).click();
       
-      // Verify URL change
-      await expect(page).toHaveURL(new RegExp(link.path));
+      // Verify URL change - allow both with and without .html (pretty URLs)
+      // Create a pattern that accepts both '/about.html' and '/about'
+      const basePath = link.path.replace('.html', '');
+      const urlPattern = new RegExp(`${basePath}(?:\\.html)?$`);
+      await expect(page).toHaveURL(urlPattern);
       
       // Verify expected content on the page
       const element = page.locator(link.expectedElement);
@@ -52,17 +55,17 @@ test.describe('Core Navigation & Page Accessibility', () => {
   test('Test 1.3: Footer Navigation Links (Basic)', async ({ page }) => {
     // Test a few key footer links
     const footerLinks = [
-      { text: 'Home', path: 'index.html' },
-      { text: 'Services', path: 'services.html' },
-      { text: 'Get a Quote', path: 'quote.html' }
+      { text: 'Home', path: 'index.html', expectedURL: /^\/$|index\.html$/ }, // Match either root '/' or 'index.html'
+      { text: 'Services', path: 'services.html', expectedURL: /\/services(?:\.html)?$/ },
+      { text: 'Get a Quote', path: 'quote.html', expectedURL: /\/quote(?:\.html)?$/ }
     ];
 
     for (const link of footerLinks) {
       // Find the link by its text content within the footer
       await page.locator('.footer').getByText(link.text).first().click();
       
-      // Verify URL change
-      await expect(page).toHaveURL(new RegExp(link.path));
+      // Verify URL change - using pre-defined regex pattern for each link
+      await expect(page).toHaveURL(link.expectedURL);
       
       // Go back to the homepage for the next test
       await page.goto('/');
@@ -70,17 +73,20 @@ test.describe('Core Navigation & Page Accessibility', () => {
   });
 
   test('Test 1.4: Logo Link to Homepage', async ({ page }) => {
-    // First navigate to a sub-page
+    // First navigate to a sub-page - handle both /about.html and /about URLs
     await page.goto('/about.html');
     
-    // Verify we're on the about page
-    await expect(page).toHaveURL(/about.html/);
+    // Verify we're on the about page - handle both with and without .html
+    await expect(page).toHaveURL(/\/about(?:\.html)?$/);
+    
+    // Wait for the logo to be visible before clicking
+    await page.locator('[data-testid="logo"]').waitFor({ state: 'visible' });
     
     // Click the logo
     await page.locator('[data-testid="logo"]').click();
     
-    // Verify we're back on the homepage
-    await expect(page).toHaveURL(/^\/$|index.html$/);
+    // Verify we're back on the homepage - match either '/' or '/index.html'
+    await expect(page).toHaveURL(/^\/$|\/index\.html$/);
     
     // Verify hero section is visible (which is only on the homepage)
     await expect(page.locator('[data-testid="hero-section"]')).toBeVisible();
