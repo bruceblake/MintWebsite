@@ -403,6 +403,8 @@
             // Get all service items
             const serviceItems = document.querySelectorAll('.service-item');
             
+            console.log('Found', serviceItems.length, 'service items');
+            
             // Add click event listener to each button
             categoryButtons.forEach(button => {
                 button.addEventListener('click', function() {
@@ -413,17 +415,22 @@
                     
                     // Get the category value
                     const category = this.getAttribute('data-category');
+                    console.log('Filtering by category:', category);
                     
+                    let visibleCount = 0;
                     // Show/hide service items based on category
                     serviceItems.forEach(item => {
-                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                        const itemCategory = item.getAttribute('data-category');
+                        if (category === 'all' || itemCategory === category) {
                             item.style.display = 'flex';
                             item.classList.remove('hidden');
+                            visibleCount++;
                         } else {
                             item.style.display = 'none';
                             item.classList.add('hidden');
                         }
                     });
+                    console.log('Visible items after filtering:', visibleCount);
                 });
             });
         });
