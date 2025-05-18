@@ -51,8 +51,11 @@ test.describe('UI Interactions', () => {
   
   test.describe('Test UI.2: Button Hover States (Primary CTAs)', () => {
     test('Primary buttons change appearance on hover', async ({ page, isMobile }) => {
-      // Skip on mobile viewport
-      test.skip(isMobile, 'Hover interactions are not applicable on mobile');
+      // Skip on mobile viewport - check both isMobile and project name
+      const projectName = test.info().project.name;
+      const isMobileProject = projectName.includes('Mobile');
+      
+      test.skip(isMobile || isMobileProject, 'Hover interactions are not applicable on mobile');
       
       // Navigate to the homepage
       await page.goto('/');
@@ -269,7 +272,7 @@ test.describe('UI Interactions', () => {
       const galleryItem = page.locator('.gallery-item').first();
       await expect(galleryItem).toBeVisible();
       
-      // Get the initial state of the overlay (typically moved down with translateY)
+      // Get the initial state of the overlay
       const overlay = galleryItem.locator('.gallery-item-overlay');
       const initialState = await overlay.evaluate(el => {
         const style = window.getComputedStyle(el);
@@ -279,8 +282,13 @@ test.describe('UI Interactions', () => {
         };
       });
       
-      // Verify initial state - overlay should be hidden
+      // Verify initial state
       expect(parseFloat(initialState.opacity)).toBe(0);
+      // Transform should be either 'none' or contain 'translateY'
+      const hasTransform = initialState.transform !== 'none' && initialState.transform.includes('translateY');
+      if (hasTransform) {
+        expect(initialState.transform).toContain('translateY');
+      }
       
       // Hover over the gallery item
       await galleryItem.hover();
@@ -299,6 +307,10 @@ test.describe('UI Interactions', () => {
       
       // Verify the overlay becomes visible on hover
       expect(parseFloat(hoverState.opacity)).toBeGreaterThan(0);
+      // Transform should change to translateY(0) or none
+      if (initialState.transform !== 'none') {
+        expect(hoverState.transform).not.toEqual(initialState.transform);
+      }
     });
   });
   

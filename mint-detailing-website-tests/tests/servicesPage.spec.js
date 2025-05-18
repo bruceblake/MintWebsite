@@ -166,6 +166,9 @@ test.describe('Services Page Tests', () => {
   
   test.describe('Test S.4: Verifying Specific Services', () => {
     test('Interior detailing service is listed with correct details', async ({ page }) => {
+      // Wait for services to load
+      await page.waitForSelector('.service-item', { state: 'visible' });
+      
       // Find the Interior Detailing service (using Interior Deep Clean as the service name)
       const interiorService = page.locator('.service-item', { has: page.locator('h3', { hasText: /Interior Deep Clean/i }) });
       

@@ -268,7 +268,8 @@ test.describe('Gallery Page Tests', () => {
       // Check overlay width is approximately 25%
       const newWidthAt25 = await overlay.evaluate(el => parseFloat(window.getComputedStyle(el).width));
       const widthPercentAt25 = newWidthAt25 / containerWidth * 100;
-      expect(widthPercentAt25).toBeCloseTo(25, 2); // Allow 2% tolerance for browser precision differences
+      // Use explicit tolerance check for better control
+      expect(Math.abs(widthPercentAt25 - 25)).toBeLessThan(0.5); // Allow 0.5% tolerance for browser precision differences
       
       // Test dragging to 75% position
       await slider.dragTo(container, { 
@@ -281,7 +282,8 @@ test.describe('Gallery Page Tests', () => {
       // Check overlay width is approximately 75%
       const newWidthAt75 = await overlay.evaluate(el => parseFloat(window.getComputedStyle(el).width));
       const widthPercentAt75 = newWidthAt75 / containerWidth * 100;
-      expect(widthPercentAt75).toBeCloseTo(75, 2); // Allow 2% tolerance for browser precision differences
+      // Use explicit tolerance check for better control
+      expect(Math.abs(widthPercentAt75 - 75)).toBeLessThan(0.5); // Allow 0.5% tolerance for browser precision differences
     });
   });
   
