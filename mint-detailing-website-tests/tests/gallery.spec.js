@@ -14,7 +14,7 @@ test.describe('Gallery Page Tests', () => {
       // Verify the page heading
       const heading = page.locator('[data-testid="gallery-heading"]');
       await expect(heading).toBeVisible();
-      await expect(heading).toContainText('Our Work');
+      await expect(heading).toContainText('Photo Gallery');
       
       // Verify gallery grid exists
       const galleryGrid = page.locator('[data-testid="gallery-grid"]');
@@ -61,14 +61,14 @@ test.describe('Gallery Page Tests', () => {
         await page.waitForTimeout(500);
         
         // Get count of currently visible items after filtering
-        const visibleItems = page.locator(`.gallery-item:not(.hidden)`);
+        const visibleItems = page.locator(`.gallery-item:visible`);
         const filteredCount = await visibleItems.count();
         
         // If we have any items in this category
         if (filteredCount > 0) {
           // Check that only items with the correct category are visible
-          const shownItems = page.locator(`.gallery-item:not(.hidden)`);
-          const categoryItems = page.locator(`.gallery-item[data-category*="${category}"]:not(.hidden)`);
+          const shownItems = page.locator(`.gallery-item:visible`);
+          const categoryItems = page.locator(`.gallery-item[data-category*="${category}"]:visible`);
           
           expect(await shownItems.count()).toBe(await categoryItems.count());
         }
@@ -222,7 +222,7 @@ test.describe('Gallery Page Tests', () => {
       await expect(beforeAfterImage).toBeVisible();
       
       // Check for slider control if it exists
-      const slider = firstContainer.locator('.slider-handle');
+      const slider = firstContainer.locator('.comparison-slider');
       if (await slider.count() > 0) {
         await expect(slider).toBeVisible();
       }

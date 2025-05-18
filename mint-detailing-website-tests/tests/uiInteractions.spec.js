@@ -32,15 +32,18 @@ test.describe('UI Interactions', () => {
       // Verify the color changed on hover
       expect(hoverColor).not.toEqual(initialColor);
       
-      // Verify the hover color is mint green (approx. rgb(85, 196, 171) or close to it)
+      // Verify the hover color is mint green (approx. rgb(208, 228, 225) or close to it)
       // Converting to RGB format for easier comparison with tolerances
       const rgbMatch = hoverColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
       if (rgbMatch) {
         const [_, r, g, b] = rgbMatch.map(Number);
-        // Check if the color is in the mint green range with some tolerance
-        expect(r).toBeLessThan(100); // Red component should be low
-        expect(g).toBeGreaterThan(150); // Green component should be high
-        expect(b).toBeGreaterThan(100); // Blue component should be medium-high
+        // Check if the color is in the light mint green range (#d0e4e1 = rgb(208, 228, 225))
+        expect(r).toBeGreaterThan(190); // Red component around 208
+        expect(r).toBeLessThan(220);
+        expect(g).toBeGreaterThan(215); // Green component around 228
+        expect(g).toBeLessThan(240);
+        expect(b).toBeGreaterThan(210); // Blue component around 225
+        expect(b).toBeLessThan(235);
       }
     });
   });
@@ -97,7 +100,7 @@ test.describe('UI Interactions', () => {
       await page.goto('/');
       
       // Find the header CTA button 
-      const ctaButton = page.locator('nav .btn-primary').filter({ hasText: 'Get a Quote' });
+      const ctaButton = page.locator('[data-testid="nav-quote"]');
       await expect(ctaButton).toBeVisible();
       
       // Get initial styles
@@ -263,7 +266,7 @@ test.describe('UI Interactions', () => {
       await expect(galleryItem).toBeVisible();
       
       // Get the initial state of the overlay (typically invisible or low opacity)
-      const overlay = galleryItem.locator('.gallery-overlay');
+      const overlay = galleryItem.locator('.gallery-item-overlay');
       const initialOpacity = await overlay.evaluate(el => {
         return window.getComputedStyle(el).opacity;
       });
@@ -290,7 +293,7 @@ test.describe('UI Interactions', () => {
       await page.goto('/');
       
       // Find a social media icon in the footer
-      const socialIcon = page.locator('footer .social-icon').first();
+      const socialIcon = page.locator('footer .social-link').first();
       await expect(socialIcon).toBeVisible();
       
       // Get initial styles

@@ -6,7 +6,7 @@ test.describe('Services Page Tests', () => {
     await page.goto('/services');
     
     // Wait for the main content to load completely
-    await page.waitForSelector('.service-grid', { state: 'visible' });
+    await page.waitForSelector('.service-category-section', { state: 'visible' });
   });
   
   test.describe('Test S.1: Services Page Structure', () => {
@@ -16,18 +16,18 @@ test.describe('Services Page Tests', () => {
       await expect(title).toBeVisible();
       await expect(title).toContainText('Our Detailing Services');
       
-      // Verify services introduction exists
-      const servicesIntro = page.locator('.services-intro');
+      // Verify services introduction exists - it's in the first section after page header
+      const servicesIntro = page.locator('.section.bg-light .text-center');
       await expect(servicesIntro).toBeVisible();
       
       // Verify filter buttons exist
-      const filterButtons = page.locator('.service-filter-btn');
+      const filterButtons = page.locator('.service-category-btn');
       const filterCount = await filterButtons.count();
       expect(filterCount).toBeGreaterThanOrEqual(3); // At least All, Interior, Exterior filters
       
-      // Verify service grid exists
-      const serviceGrid = page.locator('.service-grid');
-      await expect(serviceGrid).toBeVisible();
+      // Verify service sections exist
+      const serviceSection = page.locator('.service-category-section');
+      await expect(serviceSection.first()).toBeVisible();
       
       // Verify custom services section exists
       const customServices = page.locator('.custom-services');
@@ -51,7 +51,7 @@ test.describe('Services Page Tests', () => {
       
       for (const category of categories) {
         // Find and click the filter button
-        const filterBtn = page.locator(`.service-filter-btn[data-filter="${category}"]`);
+        const filterBtn = page.locator(`.service-category-btn[data-category="${category}"]`);
         if (await filterBtn.count() === 0) continue;
         
         await filterBtn.click();
@@ -66,7 +66,7 @@ test.describe('Services Page Tests', () => {
         expect(await visibleItems.count()).toBe(await categoryItems.count());
         
         // Return to "all" filter to reset for next test
-        const allFilterBtn = page.locator('.service-filter-btn[data-filter="all"]');
+        const allFilterBtn = page.locator('.service-category-btn[data-category="all"]');
         await allFilterBtn.click();
         await page.waitForTimeout(500);
       }
