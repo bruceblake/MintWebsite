@@ -8,4 +8,4 @@ services:
       - ../:/usr/src/website
     environment:
       - BASE_URL=file:///usr/src/website
-    command: npm test tests/servicesPage.spec.js
+    command: npm test

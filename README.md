@@ -75,4 +75,4 @@ This website was built using pure HTML, CSS, and JavaScript without frameworks o
 
 ---
 
-© 2023 Mint Detailing. All Rights Reserved.
+© 2025 Mint Detailing. All Rights Reserved.

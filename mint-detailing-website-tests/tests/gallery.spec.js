@@ -179,6 +179,8 @@ test.describe('Gallery Page Tests', () => {
       
       // Open lightbox again
       await firstImage.click();
+      // Wait for lightbox to be visible specifically on Firefox
+      await page.waitForSelector('.lightbox.active', { state: 'visible', timeout: 5000 });
       await expect(lightbox).toBeVisible();
       
       // Test closing by clicking outside the image

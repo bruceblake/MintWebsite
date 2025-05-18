@@ -55,7 +55,10 @@ test.describe('UI Interactions', () => {
       const projectName = test.info().project.name;
       const isMobileProject = projectName.includes('Mobile');
       
-      test.skip(isMobile || isMobileProject, 'Hover interactions are not applicable on mobile');
+      if (isMobile || isMobileProject) {
+        test.skip('Hover interactions are not applicable on mobile');
+        return;
+      }
       
       // Navigate to the homepage
       await page.goto('/');
@@ -285,8 +288,7 @@ test.describe('UI Interactions', () => {
       // Verify initial state
       expect(parseFloat(initialState.opacity)).toBe(0);
       // Transform should be either 'none' or contain 'translateY'
-      const hasTransform = initialState.transform !== 'none' && initialState.transform.includes('translateY');
-      if (hasTransform) {
+      if (initialState.transform !== 'none') {
         expect(initialState.transform).toContain('translateY');
       }
       
