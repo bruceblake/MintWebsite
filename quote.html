@@ -80,7 +80,11 @@
             <div class="contact-container">
                 <div class="contact-form-container">
                     <h2 class="form-title">Request a Quote</h2>
-                    <form id="quote-form" action="thank-you.html" method="POST" class="contact-form">
+                    <form id="quote-form" name="quote-request" action="thank-you.html" method="POST" class="contact-form" netlify netlify-honeypot="bot-field" data-netlify="true">
+                        <p class="hidden" style="display: none;">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </p>
+                        <input type="hidden" name="form-name" value="quote-request" />
                         <!-- Personal Information -->
                         <div class="form-section">
                             <h3 class="section-label">Personal Information</h3>
@@ -190,34 +194,48 @@
                             <div class="form-group">
                                 <label class="form-label">Services Interested In (Select all that apply) *</label>
                                 <div class="services-options">
+                                    <!-- Interior Services -->
                                     <div class="form-check">
-                                        <input type="checkbox" id="interior" name="services[]" value="Interior Detailing" class="form-check-input">
-                                        <label for="interior" class="form-check-label">Interior Detailing</label>
+                                        <input type="checkbox" id="interior-deep-clean" name="services[]" value="Interior Deep Clean" class="form-check-input">
+                                        <label for="interior-deep-clean" class="form-check-label">Interior Deep Clean</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" id="exterior" name="services[]" value="Exterior Detailing" class="form-check-input">
-                                        <label for="exterior" class="form-check-label">Exterior Detailing</label>
+                                        <input type="checkbox" id="upholstery" name="services[]" value="Upholstery & Carpet Rejuvenation" class="form-check-input">
+                                        <label for="upholstery" class="form-check-label">Upholstery & Carpet Rejuvenation</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" id="full" name="services[]" value="Full Detail" class="form-check-input">
-                                        <label for="full" class="form-check-label">Full Detail Package</label>
+                                        <input type="checkbox" id="leather" name="services[]" value="Leather Restoration & Protection" class="form-check-input">
+                                        <label for="leather" class="form-check-label">Leather Restoration & Protection</label>
+                                    </div>
+                                    
+                                    <!-- Exterior Services -->
+                                    <div class="form-check">
+                                        <input type="checkbox" id="exterior-wash" name="services[]" value="Premium Exterior Wash" class="form-check-input">
+                                        <label for="exterior-wash" class="form-check-label">Premium Exterior Wash</label>
                                     </div>
                                     <div class="form-check">
-                                        <input type="checkbox" id="ceramic" name="services[]" value="Ceramic Coating" class="form-check-input">
-                                        <label for="ceramic" class="form-check-label">Ceramic Coating</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" id="paint-correction" name="services[]" value="Paint Correction" class="form-check-input">
-                                        <label for="paint-correction" class="form-check-label">Paint Correction</label>
+                                        <input type="checkbox" id="paint-correction" name="services[]" value="Paint Correction & Polishing" class="form-check-input">
+                                        <label for="paint-correction" class="form-check-label">Paint Correction & Polishing</label>
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox" id="headlight" name="services[]" value="Headlight Restoration" class="form-check-input">
                                         <label for="headlight" class="form-check-label">Headlight Restoration</label>
                                     </div>
+                                    
+                                    <!-- Protection Services -->
                                     <div class="form-check">
-                                        <input type="checkbox" id="leather" name="services[]" value="Leather Treatment" class="form-check-input">
-                                        <label for="leather" class="form-check-label">Leather Treatment</label>
+                                        <input type="checkbox" id="ceramic" name="services[]" value="Ceramic Coating" class="form-check-input">
+                                        <label for="ceramic" class="form-check-label">Ceramic Coating</label>
                                     </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" id="wax" name="services[]" value="Premium Wax Protection" class="form-check-input">
+                                        <label for="wax" class="form-check-label">Premium Wax Protection</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" id="ppf" name="services[]" value="Paint Protection Film" class="form-check-input">
+                                        <label for="ppf" class="form-check-label">Paint Protection Film</label>
+                                    </div>
+                                    
                                     <div class="form-check">
                                         <input type="checkbox" id="other" name="services[]" value="Other" class="form-check-input">
                                         <label for="other" class="form-check-label">Other (Please specify in message)</label>
@@ -467,6 +485,14 @@
                     const firstError = document.querySelector('.form-control.error, .form-select.error, .error-message');
                     if (firstError) {
                         firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                } else {
+                    // For Netlify Forms, we don't need to prevent default as it will handle the submission
+                    // However, we can add a loading state
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    if (submitButton) {
+                        submitButton.disabled = true;
+                        submitButton.innerHTML = 'Submitting...';
                     }
                 }
             });
