@@ -419,11 +419,17 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Image comparison slider functionality
             const sliders = document.querySelectorAll('.comparison-slider');
+            console.log('Found', sliders.length, 'comparison sliders');
             
-            sliders.forEach(slider => {
+            sliders.forEach((slider, index) => {
                 const container = slider.closest('.comparison-container');
                 const overlay = container.querySelector('.comparison-img-overlay');
                 let isDown = false;
+                
+                if (!overlay) {
+                    console.error('No overlay found for slider', index);
+                    return;
+                }
                 
                 function getPosition(event) {
                     const containerRect = container.getBoundingClientRect();
