@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  playwright:
+    build: .
+    volumes:
+      - .:/usr/src/app
+      - ../:/usr/src/website
+    environment:
+      - BASE_URL=file:///usr/src/website/
+    command: npm test tests/servicesPage.spec.js
