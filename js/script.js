@@ -185,61 +185,10 @@ function setupGalleryLightbox() {
 
 /**
  * Sets up form validation for the quote/contact form
+ * Note: The quote.html page has its own inline validation script,
+ * so this function is now just a placeholder to avoid duplication.
  */
 function setupFormValidation() {
-    const form = document.querySelector('#quote-form');
-    if (!form) return;
-    
-    form.addEventListener('submit', function(e) {
-        let valid = true;
-        
-        // Reset validation messages
-        form.querySelectorAll('.error-message').forEach(el => el.remove());
-        
-        // Required fields
-        const requiredFields = form.querySelectorAll('[required]');
-        requiredFields.forEach(field => {
-            field.classList.remove('error');
-            
-            if (!field.value.trim()) {
-                valid = false;
-                field.classList.add('error');
-                addErrorMessage(field, 'This field is required');
-            }
-        });
-        
-        // Email validation
-        const emailField = form.querySelector('input[type="email"]');
-        if (emailField && emailField.value.trim()) {
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailPattern.test(emailField.value)) {
-                valid = false;
-                emailField.classList.add('error');
-                addErrorMessage(emailField, 'Please enter a valid email address');
-            }
-        }
-        
-        // Phone validation
-        const phoneField = form.querySelector('input[name="phone"]');
-        if (phoneField && phoneField.value.trim()) {
-            const phonePattern = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-            if (!phonePattern.test(phoneField.value)) {
-                valid = false;
-                phoneField.classList.add('error');
-                addErrorMessage(phoneField, 'Please enter a valid phone number');
-            }
-        }
-        
-        if (!valid) {
-            e.preventDefault();
-        }
-    });
-    
-    // Helper function to add error messages
-    function addErrorMessage(field, message) {
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
-        errorDiv.textContent = message;
-        field.parentNode.appendChild(errorDiv);
-    }
+    // Validation is now handled directly in the quote.html file
+    // to avoid duplicate event handlers
 }
