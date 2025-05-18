@@ -22,25 +22,23 @@ test.describe('Core Navigation & Page Accessibility', () => {
   });
 
   test('Test 1.2: Header Navigation Links', async ({ page }) => {
-    // Test each navigation link
+    // Test each navigation link - using "pretty URLs" without .html
     const navLinks = [
-      { testId: 'nav-about', path: '/about.html', expectedElement: 'h1', expectedText: 'About Mint' },
-      { testId: 'nav-services', path: '/services.html', expectedElement: 'h1', expectedText: 'Our Services' },
-      { testId: 'nav-gallery', path: '/gallery.html', expectedElement: '[data-testid="gallery-heading"]', expectedText: 'Photo Gallery' },
-      { testId: 'nav-testimonials', path: '/testimonials.html', expectedElement: 'h1', expectedText: 'Customer Testimonials' },
-      { testId: 'nav-service-area', path: '/service-area.html', expectedElement: 'h1', expectedText: 'Our Service Area' },
-      { testId: 'nav-quote', path: '/quote.html', expectedElement: '[data-testid="form-title"]', expectedText: 'Request a Quote' }
+      { testId: 'nav-about', path: '/about', expectedElement: 'h1', expectedText: 'About Mint' },
+      { testId: 'nav-services', path: '/services', expectedElement: 'h1', expectedText: 'Our Services' },
+      { testId: 'nav-gallery', path: '/gallery', expectedElement: '[data-testid="gallery-heading"]', expectedText: 'Photo Gallery' },
+      { testId: 'nav-testimonials', path: '/testimonials', expectedElement: 'h1', expectedText: 'Customer Testimonials' },
+      { testId: 'nav-service-area', path: '/service-area', expectedElement: 'h1', expectedText: 'Our Service Area' },
+      { testId: 'nav-quote', path: '/quote', expectedElement: '[data-testid="form-title"]', expectedText: 'Request a Quote' }
     ];
 
     for (const link of navLinks) {
       // Click the navigation link
       await page.locator(`[data-testid="${link.testId}"]`).click();
       
-      // Verify URL change - allow both with and without .html (pretty URLs)
-      // Create a pattern that accepts both '/about.html' and '/about'
-      const basePath = link.path.replace('.html', '');
-      const urlPattern = new RegExp(`${basePath}(?:\\.html)?$`);
-      await expect(page).toHaveURL(urlPattern);
+      // Verify URL change - using Playwright's path handling with baseURL
+      // This automatically prepends the baseURL from playwright.config.js
+      await expect(page).toHaveURL(link.path);
       
       // Verify expected content on the page
       const element = page.locator(link.expectedElement);
@@ -53,19 +51,20 @@ test.describe('Core Navigation & Page Accessibility', () => {
   });
 
   test('Test 1.3: Footer Navigation Links (Basic)', async ({ page }) => {
-    // Test a few key footer links
+    // Test a few key footer links - using "pretty URLs" without .html
     const footerLinks = [
-      { text: 'Home', path: 'index.html', expectedURL: /^\/$|index\.html$/ }, // Match either root '/' or 'index.html'
-      { text: 'Services', path: 'services.html', expectedURL: /\/services(?:\.html)?$/ },
-      { text: 'Get a Quote', path: 'quote.html', expectedURL: /\/quote(?:\.html)?$/ }
+      { text: 'Home', path: '/' }, // Root URL for homepage
+      { text: 'Services', path: '/services' },
+      { text: 'Get a Quote', path: '/quote' }
     ];
 
     for (const link of footerLinks) {
       // Find the link by its text content within the footer
       await page.locator('.footer').getByText(link.text).first().click();
       
-      // Verify URL change - using pre-defined regex pattern for each link
-      await expect(page).toHaveURL(link.expectedURL);
+      // Verify URL change - using Playwright's path handling with baseURL
+      // This automatically prepends the baseURL from playwright.config.js
+      await expect(page).toHaveURL(link.path);
       
       // Go back to the homepage for the next test
       await page.goto('/');
@@ -73,11 +72,11 @@ test.describe('Core Navigation & Page Accessibility', () => {
   });
 
   test('Test 1.4: Logo Link to Homepage', async ({ page }) => {
-    // First navigate to a sub-page - handle both /about.html and /about URLs
-    await page.goto('/about.html');
+    // First navigate to a sub-page
+    await page.goto('/about');
     
-    // Verify we're on the about page - handle both with and without .html
-    await expect(page).toHaveURL(/\/about(?:\.html)?$/);
+    // Verify we're on the about page
+    await expect(page).toHaveURL('/about');
     
     // Wait for the logo to be visible before clicking
     await page.locator('[data-testid="logo"]').waitFor({ state: 'visible' });
@@ -85,8 +84,8 @@ test.describe('Core Navigation & Page Accessibility', () => {
     // Click the logo
     await page.locator('[data-testid="logo"]').click();
     
-    // Verify we're back on the homepage - match either '/' or '/index.html'
-    await expect(page).toHaveURL(/^\/$|\/index\.html$/);
+    // Verify we're back on the homepage - Netlify serves the root URL '/'
+    await expect(page).toHaveURL('/');
     
     // Verify hero section is visible (which is only on the homepage)
     await expect(page.locator('[data-testid="hero-section"]')).toBeVisible();
