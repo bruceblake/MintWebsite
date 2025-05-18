@@ -16,8 +16,8 @@ test.describe('Services Page Tests', () => {
       await expect(title).toBeVisible();
       await expect(title).toContainText('Our Detailing Services');
       
-      // Verify services introduction exists - it's in the first section after page header
-      const servicesIntro = page.locator('.section.bg-light .text-center');
+      // Verify services introduction exists with unique testid
+      const servicesIntro = page.locator('[data-testid="services-page-intro"]');
       await expect(servicesIntro).toBeVisible();
       
       // Verify filter buttons exist
