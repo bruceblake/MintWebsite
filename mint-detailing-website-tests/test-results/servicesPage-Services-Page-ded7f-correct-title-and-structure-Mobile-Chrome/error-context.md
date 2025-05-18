@@ -6,9 +6,9 @@
 # Error details
 
 ```
-Error: page.goto: net::ERR_FILE_NOT_FOUND at file:///services
+Error: page.goto: net::ERR_FILE_NOT_FOUND at file:///services.html
 Call log:
-  - navigating to "file:///services", waiting until "load"
+  - navigating to "file:///services.html", waiting until "load"
 
     at /usr/src/app/tests/servicesPage.spec.js:6:16
 ```
@@ -21,8 +21,8 @@ Call log:
    3 | test.describe('Services Page Tests', () => {
    4 |   test.beforeEach(async ({ page }) => {
    5 |     // Navigate to the services page before each test
->  6 |     await page.goto('/services');
-     |                ^ Error: page.goto: net::ERR_FILE_NOT_FOUND at file:///services
+>  6 |     await page.goto('/services.html');
+     |                ^ Error: page.goto: net::ERR_FILE_NOT_FOUND at file:///services.html
    7 |     
    8 |     // Wait for the main content to load completely
    9 |     await page.waitForSelector('.service-category-section', { state: 'visible' });

@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test.describe('Services Page Tests', () => {
   test.beforeEach(async ({ page }) => {
     // Navigate to the services page before each test
-    await page.goto('/services');
+    await page.goto('/services.html');
     
     // Wait for the main content to load completely
     await page.waitForSelector('.service-category-section', { state: 'visible' });
