@@ -29,12 +29,12 @@ test.describe('Services Page Tests', () => {
       const serviceSection = page.locator('.service-category-section');
       await expect(serviceSection.first()).toBeVisible();
       
-      // Verify custom services section exists
-      const customServices = page.locator('.custom-services');
+      // Verify custom services section exists - it's a regular section with the custom content
+      const customServices = page.locator('section').filter({ hasText: 'Custom Detailing Solutions' });
       await expect(customServices).toBeVisible();
       
-      // Verify CTA section exists
-      const ctaSection = page.locator('.cta-section');
+      // Verify CTA section exists - it's a regular section with CTA content
+      const ctaSection = page.locator('section').filter({ hasText: 'Ready to Experience the Mint Difference?' });
       await expect(ctaSection).toBeVisible();
     });
   });
@@ -210,8 +210,8 @@ test.describe('Services Page Tests', () => {
     });
     
     test('Exterior detailing service is listed with correct details', async ({ page }) => {
-      // Find the Exterior Detailing service
-      const exteriorService = page.locator('.service-item', { has: page.locator('h3', { hasText: /Exterior Detailing|Wash|Polish/i }) });
+      // Find the main Exterior Detailing service using the unique data-testid
+      const exteriorService = page.locator('[data-testid="exterior-detailing-main"]');
       
       // Skip if this specific service isn't in this deployment
       if (await exteriorService.count() === 0) {
@@ -256,8 +256,8 @@ test.describe('Services Page Tests', () => {
   
   test.describe('Test S.5: Custom Services Section', () => {
     test('Custom services section contains correct elements', async ({ page }) => {
-      // Find the custom services section
-      const customSection = page.locator('.custom-services');
+      // Find the custom services section - it's a regular section with Custom Detailing Solutions
+      const customSection = page.locator('section').filter({ hasText: 'Custom Detailing Solutions' });
       await expect(customSection).toBeVisible();
       
       // Verify heading
@@ -281,8 +281,8 @@ test.describe('Services Page Tests', () => {
   
   test.describe('Test S.6: CTA Section', () => {
     test('CTA section contains correct elements and links', async ({ page }) => {
-      // Find the CTA section
-      const ctaSection = page.locator('.cta-section');
+      // Find the CTA section - it's a regular section with CTA content
+      const ctaSection = page.locator('section').filter({ hasText: 'Ready to Experience the Mint Difference?' });
       await expect(ctaSection).toBeVisible();
       
       // Verify heading

@@ -265,11 +265,14 @@ test.describe('UI Interactions', () => {
       const galleryItem = page.locator('.gallery-item').first();
       await expect(galleryItem).toBeVisible();
       
-      // Get the initial state of the overlay (typically invisible or low opacity)
+      // Get the initial state of the overlay (typically moved down with translateY)
       const overlay = galleryItem.locator('.gallery-item-overlay');
-      const initialOpacity = await overlay.evaluate(el => {
-        return window.getComputedStyle(el).opacity;
+      const initialTransform = await overlay.evaluate(el => {
+        return window.getComputedStyle(el).transform;
       });
+      
+      // Verify initial state has transform
+      expect(initialTransform).toContain('translateY');
       
       // Hover over the gallery item
       await galleryItem.hover();
@@ -277,13 +280,13 @@ test.describe('UI Interactions', () => {
       // Give the transition time to complete
       await page.waitForTimeout(300);
       
-      // Get the hover state opacity of the overlay
-      const hoverOpacity = await overlay.evaluate(el => {
-        return window.getComputedStyle(el).opacity;
+      // Get the hover state transform of the overlay
+      const hoverTransform = await overlay.evaluate(el => {
+        return window.getComputedStyle(el).transform;
       });
       
-      // Verify the overlay opacity increased on hover
-      expect(parseFloat(hoverOpacity)).toBeGreaterThan(parseFloat(initialOpacity));
+      // Verify the overlay transform changed on hover (should be translateY(0) or none)
+      expect(hoverTransform).not.toEqual(initialTransform);
     });
   });
   
