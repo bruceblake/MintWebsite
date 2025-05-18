@@ -46,39 +46,46 @@
 }
 
 /* ========== Typography ========== */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap');
 
 /* Base typography */
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text-primary);
     background-color: var(--bg-main);
+    letter-spacing: 0.01em;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     color: var(--neutral-dark);
+    letter-spacing: -0.02em;
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.25rem;
+    margin-bottom: 1.75rem;
 }
 
 h3 {
     font-size: 1.75rem;
+    font-weight: 600;
 }
 
 h4 {
     font-size: 1.5rem;
+    font-weight: 600;
 }
 
 h5 {
@@ -86,11 +93,13 @@ h5 {
 }
 
 h6 {
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
 }
 
 a {
@@ -171,17 +180,44 @@ button, .btn {
     background-color: var(--bg-section-alt);
 }
 
+.bg-dark {
+    background-color: #1A1A1A;
+    color: var(--text-light);
+}
+
+.bg-dark .section-title,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark h4,
+.bg-dark h5,
+.bg-dark h6 {
+    color: var(--text-light);
+}
+
+.bg-dark p {
+    color: #E0E0E0;
+}
+
+.bg-primary.dark {
+    background-color: var(--black-color);
+    color: var(--text-light);
+}
+
 .section {
     padding: 100px 0;
+    position: relative;
+    transition: background-color 0.3s ease;
 }
 
 .section-title {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     text-align: center;
-    font-size: 2.25rem;
-    letter-spacing: -0.5px;
+    font-size: 2.75rem;
+    letter-spacing: -0.03em;
     color: var(--black-color);
     position: relative;
+    font-weight: 800;
+    text-transform: capitalize;
 }
 
 .section-title:after {
@@ -197,31 +233,40 @@ button, .btn {
 /* ========== Buttons ========== */
 .btn {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 14px 32px;
     font-size: 1rem;
     text-align: center;
     text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    border: none;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
     font-weight: 600;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary {
-    background-color: var(--black-color);
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--black-color);
+    border-color: var(--primary-color);
+    font-weight: 700;
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-color);
-    color: var(--black-color);
-    border-color: var(--black-color);
+    background-color: var(--primary-color-light);
+    border-color: var(--primary-color-light);
     text-decoration: none;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 20px rgba(208, 228, 225, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn-secondary {
@@ -240,21 +285,28 @@ button, .btn {
 
 .btn-outline {
     background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    color: var(--black-color);
+    border: 2px solid var(--black-color);
 }
 
 .btn-outline:hover {
-    background-color: var(--primary-color);
-    color: var(--black-color);
+    background-color: var(--black-color);
+    color: var(--primary-color);
     text-decoration: none;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .btn-lg {
-    padding: 14px 28px;
-    font-size: 1.125rem;
+    padding: 16px 40px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
 }
 
 .btn-sm {
@@ -397,7 +449,7 @@ button, .btn {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 .hero-content {
@@ -410,15 +462,21 @@ button, .btn {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 20px;
     color: var(--text-light);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle {
     font-size: 1.5rem;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     color: var(--text-light);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .hero-buttons {
@@ -439,19 +497,21 @@ button, .btn {
     background-color: var(--bg-card);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     position: relative;
-    border: 1px solid rgba(208, 228, 225, 0.5);
+    border: 1px solid rgba(192, 192, 192, 0.3);
+    backdrop-filter: blur(10px);
 }
 
 .service-card:hover {
-    -webkit-transform: translateY(-8px);
-    -moz-transform: translateY(-8px);
-    -ms-transform: translateY(-8px);
-    -o-transform: translateY(-8px);
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    -webkit-transform: translateY(-5px);
+    -moz-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    -o-transform: translateY(-5px);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
 }
 
 .service-card-img {
@@ -503,16 +563,24 @@ button, .btn {
 
 .feature {
     text-align: center;
-    padding: 30px 20px;
-    background-color: var(--bg-card);
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-    border: 1px solid rgba(208, 228, 225, 0.4);
+    padding: 35px 25px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.bg-dark .feature {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
 }
 
 .feature:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 .feature-icon {
@@ -1827,4 +1895,9 @@ textarea.form-control {
     -ms-transform: translateY(0);
     -o-transform: translateY(0);
     transform: translateY(0);
+}
+
+/* ========== Utility Classes ========== */
+.hidden {
+    display: none !important;
 }

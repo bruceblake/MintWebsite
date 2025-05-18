@@ -95,7 +95,7 @@
                 <h2 class="section-title">Interior Detailing</h2>
                 
                 <!-- Service 1 -->
-                <div class="service-item service-card" data-testid="service-card" data-category="interior" data-testid="service-card">
+                <div class="service-item service-card" data-testid="service-card" data-category="interior">
                     <div class="service-item-image">
                         <img src="https://images.unsplash.com/photo-1620548035440-560ea82f8d58?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior Deep Clean Service" loading="lazy" width="800" height="600">
                     </div>
@@ -174,7 +174,7 @@
                 <h2 class="section-title">Exterior Detailing</h2>
                 
                 <!-- Service 4 -->
-                <div class="service-item service-card" data-testid="exterior-detailing-main" data-category="exterior">
+                <div class="service-item service-card" data-testid="service-card" data-category="exterior">
                     <div class="service-item-image">
                         <img src="https://images.unsplash.com/photo-1605618313023-d9fund9f5d8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Premium Exterior Wash" loading="lazy">
                     </div>
@@ -327,7 +327,7 @@
     </section>
     
     <!-- Custom Services Section -->
-    <section class="section bg-light">
+    <section class="section bg-light custom-services">
         <div class="container">
             <h2 class="section-title">Custom Detailing Solutions</h2>
             <div class="text-center" style="max-width: 800px; margin: 0 auto 30px;">
@@ -338,7 +338,7 @@
     </section>
     
     <!-- CTA Section -->
-    <section class="section bg-primary">
+    <section class="section bg-primary cta-section">
         <div class="container text-center">
             <h2 class="section-title" style="color: var(--text-light);">Ready to Experience the Mint Difference?</h2>
             <p style="color: var(--text-light); max-width: 700px; margin: 0 auto 30px;">Whether you're looking for a basic refresh or a comprehensive detail, our team is ready to exceed your expectations.</p>
@@ -418,8 +418,10 @@
                     serviceItems.forEach(item => {
                         if (category === 'all' || item.getAttribute('data-category') === category) {
                             item.style.display = 'flex';
+                            item.classList.remove('hidden');
                         } else {
                             item.style.display = 'none';
+                            item.classList.add('hidden');
                         }
                     });
                 });
