@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our professional vehicle detailing services including interior detailing, exterior polishing, ceramic coating, and specialized packages.">
+    <title>Services - Mint Detailing</title>
+    
+    <!-- Favicon (placeholder) -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <!-- If logo image is provided, use this: -->
+                <!-- <img src="images/logo.png" alt="Mint Detailing Logo"> -->
+                
+                <!-- Otherwise use text logo -->
+                <a href="index.html" class="logo-text">Mint</a>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link active">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="service-area.html" class="nav-link">Service Area</a>
+                    </li>
+                </ul>
+                <a href="quote.html" class="btn btn-primary btn-quote">Get a Free Quote</a>
+            </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('https://source.unsplash.com/random/1920x600/?car,polishing');">
+        <div class="container">
+            <h1>Our Detailing Services</h1>
+        </div>
+    </section>
+    
+    <!-- Services Introduction -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto 60px;">
+                <p>At Mint Detailing, we offer a comprehensive range of professional vehicle detailing services designed to enhance, protect, and restore your vehicle to its optimal condition. Each service is performed with meticulous attention to detail and premium products for exceptional results.</p>
+            </div>
+            
+            <!-- Service Categories Tabs/Filter -->
+            <div class="service-categories">
+                <button class="service-category-btn active" data-category="all">All Services</button>
+                <button class="service-category-btn" data-category="interior">Interior</button>
+                <button class="service-category-btn" data-category="exterior">Exterior</button>
+                <button class="service-category-btn" data-category="protection">Protection</button>
+                <button class="service-category-btn" data-category="packages">Packages</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services List -->
+    <section class="section bg-grey">
+        <div class="container">
+            <!-- Interior Services -->
+            <div id="interior" class="service-category-section">
+                <h2 class="section-title">Interior Detailing</h2>
+                
+                <!-- Service 1 -->
+                <div class="service-item" data-category="interior">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?car,interior,vacuum" alt="Interior Deep Clean Service">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Interior Deep Clean</h3>
+                        <div class="service-detail">
+                            <p>A comprehensive interior cleaning service that restores your vehicle's cabin to a like-new condition, focusing on removing dirt, stains, and odors from all surfaces.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Thorough vacuum of all carpets, mats, and upholstery</li>
+                                <li>Deep cleaning of all vinyl and plastic surfaces</li>
+                                <li>Leather cleaning and conditioning</li>
+                                <li>Door jambs and sill cleaning</li>
+                                <li>Dashboard, console, and trim detailing</li>
+                                <li>Interior glass cleaning</li>
+                                <li>Air vent cleaning and sanitizing</li>
+                                <li>Odor elimination treatment</li>
+                            </ul>
+                            <div class="service-price">Starting at: $199</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Service</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-item" data-category="interior">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?car,upholstery" alt="Upholstery & Carpet Rejuvenation">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Upholstery & Carpet Rejuvenation</h3>
+                        <div class="service-detail">
+                            <p>Specialized treatment for fabric surfaces, designed to remove deep stains, embedded dirt, and restore the original appearance of your vehicle's upholstery and carpets.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Hot water extraction cleaning</li>
+                                <li>Spot and stain treatment</li>
+                                <li>Carpet shampooing and deep cleaning</li>
+                                <li>Fabric protection treatment</li>
+                                <li>Headliner cleaning</li>
+                                <li>Deodorizing treatment</li>
+                            </ul>
+                            <div class="service-price">Starting at: $149</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Service</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-item" data-category="interior">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?car,leather" alt="Leather Restoration & Protection">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Leather Restoration & Protection</h3>
+                        <div class="service-detail">
+                            <p>Premium treatment for leather surfaces that cleans, conditions, and protects, helping to prevent aging, cracking, and UV damage while restoring suppleness and natural sheen.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Gentle leather cleaning</li>
+                                <li>Conditioning treatment</li>
+                                <li>UV protection application</li>
+                                <li>Minor scuff repair</li>
+                                <li>Color restoration (where applicable)</li>
+                                <li>Leather sealing treatment</li>
+                            </ul>
+                            <div class="service-price">Starting at: $169</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Exterior Services -->
+            <div id="exterior" class="service-category-section">
+                <h2 class="section-title">Exterior Detailing</h2>
+                
+                <!-- Service 4 -->
+                <div class="service-item" data-category="exterior">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?car,wash" alt="Premium Exterior Wash">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Premium Exterior Wash</h3>
+                        <div class="service-detail">
+                            <p>More than just a typical car wash, our Premium Exterior Wash is a meticulous process designed to safely remove contaminants while preserving your vehicle's finish.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Two-bucket hand wash technique</li>
+                                <li>Wheel and tire cleaning</li>
+                                <li>Paint decontamination</li>
+                                <li>Exterior glass cleaning</li>
+                                <li>Door jambs and edges cleaning</li>
+                                <li>Tire dressing application</li>
+                                <li>Quick-detailer finishing</li>
+                            </ul>
+                            <div class="service-price">Starting at: $89</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Service</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-item" data-category="exterior">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?car,polish" alt="Paint Correction & Polishing">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Paint Correction & Polishing</h3>
+                        <div class="service-detail">
+                            <p>Professional paint correction process that removes swirl marks, light scratches, water spots, and oxidation to restore your vehicle's paint to a mirror-like finish.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Paint inspection and assessment</li>
+                                <li>Clay bar decontamination</li>
+                                <li>Multi-stage machine polishing</li>
+                                <li>Swirl and scratch removal</li>
+                                <li>Paint enhancement</li>
+                                <li>Gloss enhancement</li>
+                                <li>Final wipe-down with premium detailer</li>
+                            </ul>
+                            <div class="service-price">Starting at: $299</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Service</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-item" data-category="exterior">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?car,headlight" alt="Headlight Restoration">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Headlight Restoration</h3>
+                        <div class="service-detail">
+                            <p>Specialized service that removes yellowing, oxidation, and haziness from headlight lenses, improving visibility and enhancing your vehicle's appearance.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Headlight cleaning and preparation</li>
+                                <li>Multi-stage wet sanding</li>
+                                <li>Polishing and clarity restoration</li>
+                                <li>UV protection sealant</li>
+                                <li>Before and after documentation</li>
+                            </ul>
+                            <div class="service-price">Starting at: $79</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Protection Services -->
+            <div id="protection" class="service-category-section">
+                <h2 class="section-title">Protection Treatments</h2>
+                
+                <!-- Service 7 -->
+                <div class="service-item" data-category="protection">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?car,ceramic" alt="Ceramic Coating">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Ceramic Coating</h3>
+                        <div class="service-detail">
+                            <p>Professional-grade ceramic coating that provides long-lasting protection against environmental contaminants, UV damage, and chemical stains while enhancing gloss and making maintenance easier.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Paint decontamination and correction</li>
+                                <li>Surface preparation</li>
+                                <li>Professional ceramic coating application</li>
+                                <li>Curing time</li>
+                                <li>1-2 years of protection (depending on package)</li>
+                                <li>Hydrophobic properties</li>
+                                <li>Aftercare instructions</li>
+                            </ul>
+                            <div class="service-price">Starting at: $599</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Service</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 8 -->
+                <div class="service-item" data-category="protection">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?car,wax" alt="Premium Wax Protection">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Premium Wax Protection</h3>
+                        <div class="service-detail">
+                            <p>High-quality carnauba wax application that protects your vehicle's paint while providing a deep, warm shine and moderate protection from the elements.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Paint cleaning and preparation</li>
+                                <li>Premium carnauba wax application</li>
+                                <li>Buffing and final detailing</li>
+                                <li>3-4 months of protection</li>
+                            </ul>
+                            <div class="service-price">Starting at: $149</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Service</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 9 -->
+                <div class="service-item" data-category="protection">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?car,coating" alt="Paint Protection Film">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Paint Protection Film</h3>
+                        <div class="service-detail">
+                            <p>Clear, virtually invisible urethane film that provides the ultimate protection against rock chips, scratches, and road debris for high-impact areas of your vehicle.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Surface preparation</li>
+                                <li>Custom-cut film application</li>
+                                <li>High-traffic area protection (hood, bumpers, etc.)</li>
+                                <li>Self-healing properties</li>
+                                <li>5+ years of protection</li>
+                                <li>Warranty coverage</li>
+                            </ul>
+                            <div class="service-price">Starting at: $899</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Package Services -->
+            <div id="packages" class="service-category-section">
+                <h2 class="section-title">Detailing Packages</h2>
+                
+                <!-- Service 10 -->
+                <div class="service-item" data-category="packages">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?luxury,car" alt="Mint Signature Detail Package">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Mint Signature Detail Package</h3>
+                        <div class="service-detail">
+                            <p>Our flagship detailing package combines comprehensive interior and exterior services for a complete vehicle transformation. Ideal for vehicles needing significant attention or preparing for a special event.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Complete Interior Deep Clean</li>
+                                <li>Premium Exterior Wash</li>
+                                <li>Paint Decontamination</li>
+                                <li>One-Step Paint Enhancement</li>
+                                <li>Premium Wax Application</li>
+                                <li>Wheel and Tire Detailing</li>
+                                <li>Interior Protection Treatment</li>
+                                <li>Engine Bay Detailing</li>
+                            </ul>
+                            <div class="service-price">Starting at: $499</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Package</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 11 -->
+                <div class="service-item" data-category="packages">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?new,car" alt="New Vehicle Preparation Package">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>New Vehicle Preparation Package</h3>
+                        <div class="service-detail">
+                            <p>Designed specifically for new vehicle purchases, this package enhances your vehicle's appearance beyond the dealership prep and provides initial protection for your investment.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Dealership Contaminant Removal</li>
+                                <li>Paint Inspection and Correction</li>
+                                <li>Ceramic Coating Application</li>
+                                <li>Interior Protection Treatment</li>
+                                <li>Glass Treatment</li>
+                                <li>Wheel Protection</li>
+                            </ul>
+                            <div class="service-price">Starting at: $699</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Package</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 12 -->
+                <div class="service-item" data-category="packages">
+                    <div class="service-item-image">
+                        <img src="https://source.unsplash.com/random/800x600/?sale,car" alt="Pre-Sale Preparation Package">
+                    </div>
+                    <div class="service-item-content">
+                        <h3>Pre-Sale Preparation Package</h3>
+                        <div class="service-detail">
+                            <p>Maximize your vehicle's value before selling or trading in with this comprehensive detailing package designed to address all cosmetic issues and present your vehicle in its best possible condition.</p>
+                            <h4>What's Included:</h4>
+                            <ul>
+                                <li>Full Interior Detailing</li>
+                                <li>Odor Elimination</li>
+                                <li>Exterior Paint Enhancement</li>
+                                <li>Light Scratch Removal</li>
+                                <li>Wheel and Tire Detailing</li>
+                                <li>Engine Bay Cleaning</li>
+                                <li>Professional Photography (optional)</li>
+                            </ul>
+                            <div class="service-price">Starting at: $399</div>
+                            <a href="quote.html" class="btn btn-primary">Book This Package</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Custom Services Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Custom Detailing Solutions</h2>
+            <div class="text-center" style="max-width: 800px; margin: 0 auto 30px;">
+                <p>Don't see exactly what you're looking for? We specialize in creating custom detailing plans tailored to your specific vehicle needs and budget. Contact us to discuss your unique requirements.</p>
+                <a href="quote.html" class="btn btn-primary">Request a Custom Quote</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section bg-primary">
+        <div class="container text-center">
+            <h2 class="section-title" style="color: var(--text-light);">Ready to Experience the Mint Difference?</h2>
+            <p style="color: var(--text-light); max-width: 700px; margin: 0 auto 30px;">Whether you're looking for a basic refresh or a comprehensive detail, our team is ready to exceed your expectations.</p>
+            <a href="quote.html" class="btn btn-lg" style="background-color: var(--text-light); color: var(--neutral-dark);">Book Your Service Now</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <!-- Footer Column 1 - About -->
+                <div>
+                    <a href="index.html" class="footer-logo">Mint</a>
+                    <p class="footer-text">Professional vehicle detailing services with exceptional quality and attention to detail. Experience the difference with Mint Detailing.</p>
+                </div>
+                
+                <!-- Footer Column 2 - Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="footer-link-item"><a href="about.html" class="footer-link">About</a></li>
+                        <li class="footer-link-item"><a href="services.html" class="footer-link">Services</a></li>
+                        <li class="footer-link-item"><a href="gallery.html" class="footer-link">Gallery</a></li>
+                        <li class="footer-link-item"><a href="testimonials.html" class="footer-link">Testimonials</a></li>
+                        <li class="footer-link-item"><a href="service-area.html" class="footer-link">Service Area</a></li>
+                        <li class="footer-link-item"><a href="quote.html" class="footer-link">Get a Quote</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Column 3 - Contact Info -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><i class="fas fa-phone"></i> <a href="tel:1234567890" class="footer-link">(123) 456-7890</a></li>
+                        <li class="footer-link-item"><i class="fas fa-envelope"></i> <a href="mailto:info@mintdetailing.com" class="footer-link">info@mintdetailing.com</a></li>
+                    </ul>
+                    <h4 class="footer-heading" style="margin-top: 20px;">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">Copyright &copy; <span id="current-year">2023</span> Mint Detailing. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    
+    <!-- Services Filter Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all service category buttons
+            const categoryButtons = document.querySelectorAll('.service-category-btn');
+            // Get all service items
+            const serviceItems = document.querySelectorAll('.service-item');
+            
+            // Add click event listener to each button
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get the category value
+                    const category = this.getAttribute('data-category');
+                    
+                    // Show/hide service items based on category
+                    serviceItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'flex';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

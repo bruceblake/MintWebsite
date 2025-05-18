@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View our portfolio of vehicle detailing work, including before and after photos showcasing our premium detailing services.">
+    <title>Photo Gallery - Mint Detailing</title>
+    
+    <!-- Favicon (placeholder) -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Image Comparison Slider CSS -->
+    <style>
+        .comparison-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+        }
+        
+        .comparison-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .comparison-img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            border-right: 3px solid var(--primary-color);
+        }
+        
+        .comparison-img-overlay img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .comparison-slider {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            cursor: ew-resize;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            z-index: 10;
+        }
+        
+        .comparison-slider::before {
+            content: '÷';
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        .comparison-label {
+            position: absolute;
+            color: var(--text-light);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 5;
+        }
+        
+        .label-before {
+            top: 10px;
+            left: 10px;
+        }
+        
+        .label-after {
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <!-- If logo image is provided, use this: -->
+                <!-- <img src="images/logo.png" alt="Mint Detailing Logo"> -->
+                
+                <!-- Otherwise use text logo -->
+                <a href="index.html" class="logo-text">Mint</a>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link active">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="service-area.html" class="nav-link">Service Area</a>
+                    </li>
+                </ul>
+                <a href="quote.html" class="btn btn-primary btn-quote">Get a Free Quote</a>
+            </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('https://source.unsplash.com/random/1920x600/?car,shine');">
+        <div class="container">
+            <h1>Photo Gallery</h1>
+        </div>
+    </section>
+    
+    <!-- Gallery Introduction -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto 40px;">
+                <p>Browse our gallery of detailing work and witness the Mint difference. See our attention to detail and the exceptional results we achieve for our clients' vehicles.</p>
+            </div>
+            
+            <!-- Gallery Filter -->
+            <div class="gallery-filter">
+                <button class="gallery-filter-btn active" data-filter="all">All Photos</button>
+                <button class="gallery-filter-btn" data-filter="exterior">Exterior</button>
+                <button class="gallery-filter-btn" data-filter="interior">Interior</button>
+                <button class="gallery-filter-btn" data-filter="before-after">Before & After</button>
+                <button class="gallery-filter-btn" data-filter="ceramic">Ceramic Coating</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Before & After Section -->
+    <section class="section bg-grey">
+        <div class="container">
+            <h2 class="section-title">Before & After Transformations</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">Slide the divider to see the dramatic difference our detailing services make. These interactive comparisons showcase our commitment to excellence.</p>
+            
+            <div class="before-after-grid">
+                <!-- Before & After 1 -->
+                <div class="before-after-item" data-category="before-after exterior">
+                    <div class="comparison-container">
+                        <img src="https://source.unsplash.com/random/800x600/?car,clean" alt="After Detailing" class="comparison-img">
+                        <div class="comparison-img-overlay">
+                            <img src="https://source.unsplash.com/random/800x600/?car,dirty" alt="Before Detailing">
+                        </div>
+                        <div class="comparison-slider"></div>
+                        <div class="comparison-label label-before">Before</div>
+                        <div class="comparison-label label-after">After</div>
+                    </div>
+                    <h3>Paint Correction & Polishing</h3>
+                    <p>Swirl marks and light scratches removed to reveal a mirror-like finish.</p>
+                </div>
+                
+                <!-- Before & After 2 -->
+                <div class="before-after-item" data-category="before-after interior">
+                    <div class="comparison-container">
+                        <img src="https://source.unsplash.com/random/800x600/?car,interior,clean" alt="After Interior Detailing" class="comparison-img">
+                        <div class="comparison-img-overlay">
+                            <img src="https://source.unsplash.com/random/800x600/?car,interior,dirty" alt="Before Interior Detailing">
+                        </div>
+                        <div class="comparison-slider"></div>
+                        <div class="comparison-label label-before">Before</div>
+                        <div class="comparison-label label-after">After</div>
+                    </div>
+                    <h3>Interior Deep Clean</h3>
+                    <p>Stains removed and surfaces rejuvenated to factory-fresh condition.</p>
+                </div>
+                
+                <!-- Before & After 3 -->
+                <div class="before-after-item" data-category="before-after ceramic">
+                    <div class="comparison-container">
+                        <img src="https://source.unsplash.com/random/800x600/?car,shiny" alt="After Ceramic Coating" class="comparison-img">
+                        <div class="comparison-img-overlay">
+                            <img src="https://source.unsplash.com/random/800x600/?car,dull" alt="Before Ceramic Coating">
+                        </div>
+                        <div class="comparison-slider"></div>
+                        <div class="comparison-label label-before">Before</div>
+                        <div class="comparison-label label-after">After</div>
+                    </div>
+                    <h3>Ceramic Coating</h3>
+                    <p>Enhanced gloss, depth, and color with long-lasting protection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Gallery Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Gallery Showcase</h2>
+            
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item" data-category="exterior ceramic">
+                    <img src="https://source.unsplash.com/random/600x600/?car,polished,1" alt="Exterior Detailing">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Exterior</div>
+                        <div class="gallery-item-title">Ceramic Pro Coating</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://source.unsplash.com/random/600x600/?car,interior,2" alt="Interior Detailing">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Interior</div>
+                        <div class="gallery-item-title">Luxury Interior Rejuvenation</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item" data-category="exterior">
+                    <img src="https://source.unsplash.com/random/600x600/?car,wash,3" alt="Exterior Wash">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Exterior</div>
+                        <div class="gallery-item-title">Premium Hand Wash</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://source.unsplash.com/random/600x600/?car,leather,4" alt="Leather Treatment">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Interior</div>
+                        <div class="gallery-item-title">Leather Restoration</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item" data-category="exterior ceramic">
+                    <img src="https://source.unsplash.com/random/600x600/?car,wax,5" alt="Paint Protection">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Exterior</div>
+                        <div class="gallery-item-title">Paint Protection Film</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item" data-category="exterior">
+                    <img src="https://source.unsplash.com/random/600x600/?car,wheels,6" alt="Wheel Detailing">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Exterior</div>
+                        <div class="gallery-item-title">Wheel & Caliper Detailing</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://source.unsplash.com/random/600x600/?car,dashboard,7" alt="Dashboard Detailing">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Interior</div>
+                        <div class="gallery-item-title">Dashboard & Console Detailing</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item" data-category="exterior ceramic">
+                    <img src="https://source.unsplash.com/random/600x600/?car,coating,8" alt="Ceramic Coating">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Exterior</div>
+                        <div class="gallery-item-title">Ceramic Coating Application</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 9 -->
+                <div class="gallery-item" data-category="exterior">
+                    <img src="https://source.unsplash.com/random/600x600/?car,headlight,9" alt="Headlight Restoration">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Exterior</div>
+                        <div class="gallery-item-title">Headlight Restoration</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 10 -->
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://source.unsplash.com/random/600x600/?car,carpet,10" alt="Carpet Cleaning">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Interior</div>
+                        <div class="gallery-item-title">Carpet Deep Extraction</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 11 -->
+                <div class="gallery-item" data-category="exterior ceramic">
+                    <img src="https://source.unsplash.com/random/600x600/?car,paint,11" alt="Paint Correction">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Exterior</div>
+                        <div class="gallery-item-title">Single-Stage Paint Correction</div>
+                    </div>
+                </div>
+                
+                <!-- Gallery Item 12 -->
+                <div class="gallery-item" data-category="interior">
+                    <img src="https://source.unsplash.com/random/600x600/?car,seats,12" alt="Seat Detailing">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-category">Interior</div>
+                        <div class="gallery-item-title">Seat Deep Cleaning</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section bg-primary">
+        <div class="container text-center">
+            <h2 class="section-title" style="color: var(--text-light);">Ready for Your Vehicle's Transformation?</h2>
+            <p style="color: var(--text-light); max-width: 700px; margin: 0 auto 30px;">Contact us today to schedule your detailing service and experience the Mint difference firsthand.</p>
+            <a href="quote.html" class="btn btn-lg" style="background-color: var(--text-light); color: var(--neutral-dark);">Get Your Free Quote</a>
+        </div>
+    </section>
+    
+    <!-- Lightbox for Gallery -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="Gallery Image" class="lightbox-img">
+            <div class="lightbox-controls">
+                <div class="lightbox-prev">n</div>
+                <div class="lightbox-next">o</div>
+            </div>
+            <div class="lightbox-close">&times;</div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <!-- Footer Column 1 - About -->
+                <div>
+                    <a href="index.html" class="footer-logo">Mint</a>
+                    <p class="footer-text">Professional vehicle detailing services with exceptional quality and attention to detail. Experience the difference with Mint Detailing.</p>
+                </div>
+                
+                <!-- Footer Column 2 - Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="footer-link-item"><a href="about.html" class="footer-link">About</a></li>
+                        <li class="footer-link-item"><a href="services.html" class="footer-link">Services</a></li>
+                        <li class="footer-link-item"><a href="gallery.html" class="footer-link">Gallery</a></li>
+                        <li class="footer-link-item"><a href="testimonials.html" class="footer-link">Testimonials</a></li>
+                        <li class="footer-link-item"><a href="service-area.html" class="footer-link">Service Area</a></li>
+                        <li class="footer-link-item"><a href="quote.html" class="footer-link">Get a Quote</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Column 3 - Contact Info -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><i class="fas fa-phone"></i> <a href="tel:1234567890" class="footer-link">(123) 456-7890</a></li>
+                        <li class="footer-link-item"><i class="fas fa-envelope"></i> <a href="mailto:info@mintdetailing.com" class="footer-link">info@mintdetailing.com</a></li>
+                    </ul>
+                    <h4 class="footer-heading" style="margin-top: 20px;">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">Copyright &copy; <span id="current-year">2023</span> Mint Detailing. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    
+    <!-- Image Comparison Slider Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Image comparison slider functionality
+            const sliders = document.querySelectorAll('.comparison-slider');
+            
+            sliders.forEach(slider => {
+                const container = slider.closest('.comparison-container');
+                const overlay = container.querySelector('.comparison-img-overlay');
+                let isDown = false;
+                
+                function getPosition(event) {
+                    const containerRect = container.getBoundingClientRect();
+                    // Handle both mouse and touch events
+                    const clientX = event.clientX || (event.touches && event.touches[0].clientX);
+                    
+                    // Calculate position as percentage
+                    return Math.max(0, Math.min(100, ((clientX - containerRect.left) / containerRect.width) * 100));
+                }
+                
+                function move(event) {
+                    if (!isDown) return;
+                    
+                    const position = getPosition(event);
+                    
+                    // Update overlay width
+                    overlay.style.width = `${position}%`;
+                    
+                    // Update slider position
+                    slider.style.left = `${position}%`;
+                    
+                    // Prevent default behavior when dragging
+                    event.preventDefault();
+                }
+                
+                // Mouse events
+                slider.addEventListener('mousedown', () => isDown = true);
+                window.addEventListener('mouseup', () => isDown = false);
+                window.addEventListener('mousemove', move);
+                
+                // Touch events
+                slider.addEventListener('touchstart', () => isDown = true);
+                window.addEventListener('touchend', () => isDown = false);
+                window.addEventListener('touchcancel', () => isDown = false);
+                window.addEventListener('touchmove', move);
+                
+                // Handle click on container to jump to position
+                container.addEventListener('click', function(event) {
+                    // Don't jump if we're clicking on the slider itself
+                    if (event.target === slider) return;
+                    
+                    const position = getPosition(event);
+                    
+                    // Update overlay width
+                    overlay.style.width = `${position}%`;
+                    
+                    // Update slider position
+                    slider.style.left = `${position}%`;
+                });
+            });
+            
+            // Gallery filtering
+            const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const beforeAfterItems = document.querySelectorAll('.before-after-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        const categories = item.getAttribute('data-category').split(' ');
+                        
+                        if (filter === 'all' || categories.includes(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
+                    // Filter before & after items
+                    beforeAfterItems.forEach(item => {
+                        const categories = item.getAttribute('data-category').split(' ');
+                        
+                        if (filter === 'all' || categories.includes(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

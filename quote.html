@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Request a free quote for professional vehicle detailing services from Mint Detailing. We offer customized packages for all types of vehicles.">
+    <title>Get a Free Quote - Mint Detailing</title>
+    
+    <!-- Favicon (placeholder) -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <!-- If logo image is provided, use this: -->
+                <!-- <img src="images/logo.png" alt="Mint Detailing Logo"> -->
+                
+                <!-- Otherwise use text logo -->
+                <a href="index.html" class="logo-text">Mint</a>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="service-area.html" class="nav-link">Service Area</a>
+                    </li>
+                </ul>
+                <a href="quote.html" class="btn btn-primary btn-quote active">Get a Free Quote</a>
+            </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('https://source.unsplash.com/random/1920x600/?car,detail');">
+        <div class="container">
+            <h1>Get Your Free Quote</h1>
+        </div>
+    </section>
+    
+    <!-- Contact Form Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto 40px;">
+                <p>Request your personalized detailing quote by filling out the form below. We'll get back to you within 24-48 hours with a customized quote based on your vehicle and service needs.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-form-container">
+                    <h2 class="form-title">Request a Quote</h2>
+                    <form id="quote-form" action="thank-you.html" method="POST" class="contact-form">
+                        <!-- Personal Information -->
+                        <div class="form-section">
+                            <h3 class="section-label">Personal Information</h3>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Full Name *</label>
+                                        <input type="text" id="name" name="name" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Email Address *</label>
+                                        <input type="email" id="email" name="email" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="phone" class="form-label">Phone Number *</label>
+                                        <input type="tel" id="phone" name="phone" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="address" class="form-label">Service Location</label>
+                                        <input type="text" id="address" name="address" class="form-control" placeholder="City, State or Full Address">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Vehicle Information -->
+                        <div class="form-section">
+                            <h3 class="section-label">Vehicle Information</h3>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="vehicle-make" class="form-label">Vehicle Make *</label>
+                                        <input type="text" id="vehicle-make" name="vehicle-make" class="form-control" placeholder="e.g. Toyota, BMW, Audi" required>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="vehicle-model" class="form-label">Vehicle Model *</label>
+                                        <input type="text" id="vehicle-model" name="vehicle-model" class="form-control" placeholder="e.g. Camry, X5, A4" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="vehicle-year" class="form-label">Vehicle Year *</label>
+                                        <input type="text" id="vehicle-year" name="vehicle-year" class="form-control" placeholder="e.g. 2023" required>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="vehicle-color" class="form-label">Vehicle Color</label>
+                                        <input type="text" id="vehicle-color" name="vehicle-color" class="form-control" placeholder="e.g. Black, Silver, White">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label for="vehicle-condition" class="form-label">Current Condition</label>
+                                        <select id="vehicle-condition" name="vehicle-condition" class="form-select">
+                                            <option value="" selected disabled>Select Condition</option>
+                                            <option value="Excellent">Excellent - Nearly New</option>
+                                            <option value="Good">Good - Normal Use</option>
+                                            <option value="Fair">Fair - Some Issues</option>
+                                            <option value="Poor">Poor - Significant Issues</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-col">
+                                    <div class="form-group">
+                                        <label class="form-label">Vehicle Type</label>
+                                        <div class="vehicle-type-options">
+                                            <div class="form-check">
+                                                <input type="radio" id="sedan" name="vehicle-type" value="Sedan" class="form-check-input">
+                                                <label for="sedan" class="form-check-label">Sedan/Coupe</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" id="suv" name="vehicle-type" value="SUV" class="form-check-input">
+                                                <label for="suv" class="form-check-label">SUV/Crossover</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" id="truck" name="vehicle-type" value="Truck" class="form-check-input">
+                                                <label for="truck" class="form-check-label">Truck</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" id="luxury" name="vehicle-type" value="Luxury" class="form-check-input">
+                                                <label for="luxury" class="form-check-label">Luxury/Exotic</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Service Information -->
+                        <div class="form-section">
+                            <h3 class="section-label">Service Information</h3>
+                            <div class="form-group">
+                                <label class="form-label">Services Interested In (Select all that apply) *</label>
+                                <div class="services-options">
+                                    <div class="form-check">
+                                        <input type="checkbox" id="interior" name="services[]" value="Interior Detailing" class="form-check-input">
+                                        <label for="interior" class="form-check-label">Interior Detailing</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" id="exterior" name="services[]" value="Exterior Detailing" class="form-check-input">
+                                        <label for="exterior" class="form-check-label">Exterior Detailing</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" id="full" name="services[]" value="Full Detail" class="form-check-input">
+                                        <label for="full" class="form-check-label">Full Detail Package</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" id="ceramic" name="services[]" value="Ceramic Coating" class="form-check-input">
+                                        <label for="ceramic" class="form-check-label">Ceramic Coating</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" id="paint-correction" name="services[]" value="Paint Correction" class="form-check-input">
+                                        <label for="paint-correction" class="form-check-label">Paint Correction</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" id="headlight" name="services[]" value="Headlight Restoration" class="form-check-input">
+                                        <label for="headlight" class="form-check-label">Headlight Restoration</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" id="leather" name="services[]" value="Leather Treatment" class="form-check-input">
+                                        <label for="leather" class="form-check-label">Leather Treatment</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="checkbox" id="other" name="services[]" value="Other" class="form-check-input">
+                                        <label for="other" class="form-check-label">Other (Please specify in message)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="preferred-date" class="form-label">Preferred Service Date</label>
+                                <input type="date" id="preferred-date" name="preferred-date" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Additional Information or Requests</label>
+                                <textarea id="message" name="message" class="form-control" rows="5" placeholder="Tell us about any specific concerns, special requests, or details about your vehicle's condition that will help us provide an accurate quote."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="source" class="form-label">How did you hear about us?</label>
+                                <select id="source" name="source" class="form-select">
+                                    <option value="" selected disabled>Please select</option>
+                                    <option value="Google Search">Google Search</option>
+                                    <option value="Social Media">Social Media</option>
+                                    <option value="Referral">Friend/Family Referral</option>
+                                    <option value="Drove By">Saw Vehicle/Sign</option>
+                                    <option value="Previous Customer">Previous Customer</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit Quote Request</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="contact-info-container">
+                    <div class="contact-info-card">
+                        <h2>Contact Information</h2>
+                        <ul class="contact-info-list">
+                            <li>
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-detail">
+                                    <span class="contact-label">Phone</span>
+                                    <a href="tel:1234567890" class="contact-value">(123) 456-7890</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-detail">
+                                    <span class="contact-label">Email</span>
+                                    <a href="mailto:info@mintdetailing.com" class="contact-value">info@mintdetailing.com</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-detail">
+                                    <span class="contact-label">Business Hours</span>
+                                    <span class="contact-value">Monday - Friday: 8am - 6pm<br>Saturday: 9am - 4pm<br>Sunday: Closed</span>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="social-contact">
+                            <h3>Connect With Us</h3>
+                            <div class="social-contact-links">
+                                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-guarantee">
+                        <h3>Our Service Guarantee</h3>
+                        <p>We stand behind our work with a 100% satisfaction guarantee. If you're not completely satisfied with our service, we'll make it right.</p>
+                        <ul class="guarantee-list">
+                            <li><i class="fas fa-check"></i> No-obligation quotes</li>
+                            <li><i class="fas fa-check"></i> Transparent pricing</li>
+                            <li><i class="fas fa-check"></i> Premium products used</li>
+                            <li><i class="fas fa-check"></i> Certified professionals</li>
+                            <li><i class="fas fa-check"></i> Flexible scheduling</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonial Snippet Section -->
+    <section class="section bg-grey">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="quote-testimonials">
+                <div class="quote-testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Second time using Mint and I'm still amazed by their attention to detail. My car looks brand new inside and out. The ceramic coating is totally worth it!"</p>
+                    <div class="testimonial-author">- James T.</div>
+                </div>
+                <div class="quote-testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The team at Mint are true professionals. They removed stains I thought would be permanent and restored my leather seats beautifully. Highly recommend!"</p>
+                    <div class="testimonial-author">- Rebecca M.</div>
+                </div>
+                <div class="quote-testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"From quote to completion, the service was impeccable. Their attention to the smallest details made all the difference. My SUV has never looked better!"</p>
+                    <div class="testimonial-author">- Michael P.</div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="testimonials.html" class="btn btn-outline">Read More Testimonials</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <!-- Footer Column 1 - About -->
+                <div>
+                    <a href="index.html" class="footer-logo">Mint</a>
+                    <p class="footer-text">Professional vehicle detailing services with exceptional quality and attention to detail. Experience the difference with Mint Detailing.</p>
+                </div>
+                
+                <!-- Footer Column 2 - Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="footer-link-item"><a href="about.html" class="footer-link">About</a></li>
+                        <li class="footer-link-item"><a href="services.html" class="footer-link">Services</a></li>
+                        <li class="footer-link-item"><a href="gallery.html" class="footer-link">Gallery</a></li>
+                        <li class="footer-link-item"><a href="testimonials.html" class="footer-link">Testimonials</a></li>
+                        <li class="footer-link-item"><a href="service-area.html" class="footer-link">Service Area</a></li>
+                        <li class="footer-link-item"><a href="quote.html" class="footer-link">Get a Quote</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Column 3 - Contact Info -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><i class="fas fa-phone"></i> <a href="tel:1234567890" class="footer-link">(123) 456-7890</a></li>
+                        <li class="footer-link-item"><i class="fas fa-envelope"></i> <a href="mailto:info@mintdetailing.com" class="footer-link">info@mintdetailing.com</a></li>
+                    </ul>
+                    <h4 class="footer-heading" style="margin-top: 20px;">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">Copyright &copy; <span id="current-year">2023</span> Mint Detailing. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    
+    <!-- Form Validation Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('quote-form');
+            
+            form.addEventListener('submit', function(event) {
+                let valid = true;
+                
+                // Reset validation messages
+                document.querySelectorAll('.error-message').forEach(msg => msg.remove());
+                document.querySelectorAll('.form-control.error, .form-select.error').forEach(field => {
+                    field.classList.remove('error');
+                });
+                
+                // Required fields validation
+                const requiredFields = form.querySelectorAll('[required]');
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        valid = false;
+                        field.classList.add('error');
+                        addErrorMessage(field, 'This field is required');
+                    }
+                });
+                
+                // Email validation
+                const emailField = form.querySelector('#email');
+                if (emailField.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(emailField.value)) {
+                        valid = false;
+                        emailField.classList.add('error');
+                        addErrorMessage(emailField, 'Please enter a valid email address');
+                    }
+                }
+                
+                // Phone validation
+                const phoneField = form.querySelector('#phone');
+                if (phoneField.value.trim()) {
+                    const phoneRegex = /^[0-9()\-\s+]{10,15}$/;
+                    if (!phoneRegex.test(phoneField.value.replace(/\s+/g, ''))) {
+                        valid = false;
+                        phoneField.classList.add('error');
+                        addErrorMessage(phoneField, 'Please enter a valid phone number');
+                    }
+                }
+                
+                // Services validation - check if at least one service is selected
+                const serviceCheckboxes = form.querySelectorAll('input[name="services[]"]:checked');
+                if (serviceCheckboxes.length === 0) {
+                    valid = false;
+                    const servicesContainer = document.querySelector('.services-options');
+                    addErrorMessage(servicesContainer, 'Please select at least one service');
+                }
+                
+                // Prevent form submission if validation fails
+                if (!valid) {
+                    event.preventDefault();
+                    
+                    // Scroll to the first error
+                    const firstError = document.querySelector('.form-control.error, .form-select.error, .error-message');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            });
+            
+            // Helper function to add error messages
+            function addErrorMessage(field, message) {
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.textContent = message;
+                field.parentNode.appendChild(errorDiv);
+            }
+        });
+    </script>
+</body>
+</html>

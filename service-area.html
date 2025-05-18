@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find out if you're in Mint Detailing's service area. We provide professional vehicle detailing services across multiple locations.">
+    <title>Service Area - Mint Detailing</title>
+    
+    <!-- Favicon (placeholder) -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    
+    <!-- Leaflet JavaScript for Map -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <!-- If logo image is provided, use this: -->
+                <!-- <img src="images/logo.png" alt="Mint Detailing Logo"> -->
+                
+                <!-- Otherwise use text logo -->
+                <a href="index.html" class="logo-text">Mint</a>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="gallery.html" class="nav-link">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="testimonials.html" class="nav-link">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="service-area.html" class="nav-link active">Service Area</a>
+                    </li>
+                </ul>
+                <a href="quote.html" class="btn btn-primary btn-quote">Get a Free Quote</a>
+            </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Page Header -->
+    <section class="page-header" style="background-image: url('https://source.unsplash.com/random/1920x600/?map,city');">
+        <div class="container">
+            <h1>Our Service Area</h1>
+        </div>
+    </section>
+    
+    <!-- Service Area Introduction -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto 40px;">
+                <p>Mint Detailing proudly serves the following areas with our premium vehicle detailing services. Check the map and list below to see if your location is within our service radius. Not sure if we cover your area? <a href="quote.html">Contact us to confirm!</a></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Service Area Map Section -->
+    <section class="section bg-grey">
+        <div class="container">
+            <h2 class="section-title">Service Coverage Map</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 30px;">We provide mobile detailing services within the highlighted area. For locations outside this radius, please contact us for special arrangements.</p>
+            
+            <!-- Map Container -->
+            <div id="service-map"></div>
+            
+            <div class="map-legend">
+                <div class="legend-item">
+                    <span class="legend-color primary-area"></span>
+                    <span class="legend-text">Primary Service Area (No Travel Fee)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color extended-area"></span>
+                    <span class="legend-text">Extended Service Area (Small Travel Fee)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-marker"><i class="fas fa-map-marker-alt"></i></span>
+                    <span class="legend-text">Mint Detailing Base</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Areas Served List Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Cities & Areas We Serve</h2>
+            
+            <div class="service-areas-grid">
+                <div class="service-area-column">
+                    <h3 class="area-category">Primary Service Area</h3>
+                    <ul class="area-list">
+                        <li>Beverly Hills</li>
+                        <li>Brentwood</li>
+                        <li>Century City</li>
+                        <li>Culver City</li>
+                        <li>Glendale</li>
+                        <li>Hollywood</li>
+                        <li>Los Angeles (Central)</li>
+                        <li>Marina Del Rey</li>
+                        <li>Pasadena</li>
+                        <li>Santa Monica</li>
+                        <li>Sherman Oaks</li>
+                        <li>Studio City</li>
+                        <li>West Hollywood</li>
+                        <li>Westwood</li>
+                    </ul>
+                </div>
+                
+                <div class="service-area-column">
+                    <h3 class="area-category">Extended Service Area</h3>
+                    <ul class="area-list">
+                        <li>Agoura Hills</li>
+                        <li>Alhambra</li>
+                        <li>Arcadia</li>
+                        <li>Burbank</li>
+                        <li>Calabasas</li>
+                        <li>El Segundo</li>
+                        <li>Encino</li>
+                        <li>Inglewood</li>
+                        <li>Long Beach</li>
+                        <li>Malibu</li>
+                        <li>Manhattan Beach</li>
+                        <li>Playa Vista</li>
+                        <li>Redondo Beach</li>
+                        <li>San Gabriel</li>
+                        <li>San Marino</li>
+                        <li>South Pasadena</li>
+                        <li>Torrance</li>
+                        <li>Venice</li>
+                        <li>Woodland Hills</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="custom-arrangements">
+                <h3>Outside Our Service Area?</h3>
+                <p>If your location is not listed above, please don't hesitate to contact us. We can often make special arrangements for locations outside our regular service area, particularly for multi-vehicle bookings or premium detailing packages.</p>
+                <a href="quote.html" class="btn btn-primary">Contact Us for Special Arrangements</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mobile Service Section -->
+    <section class="section bg-grey">
+        <div class="container">
+            <div class="mobile-service-feature">
+                <div class="mobile-service-content">
+                    <h2>Mobile Detailing at Your Convenience</h2>
+                    <p>Our mobile detailing service brings the full Mint experience directly to your location. We arrive with everything needed to deliver exceptional results, including:</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-water"></i> Self-contained water system</li>
+                        <li><i class="fas fa-plug"></i> Power sources for all equipment</li>
+                        <li><i class="fas fa-tools"></i> Professional-grade detailing tools</li>
+                        <li><i class="fas fa-spray-can"></i> Premium detailing products</li>
+                        <li><i class="fas fa-shield-alt"></i> Eco-friendly solutions</li>
+                    </ul>
+                    <p>Whether at your home, office, or other location, our mobile service provides the same exceptional quality as our shop-based services, with the added convenience of not having to transport your vehicle.</p>
+                    <a href="quote.html" class="btn btn-primary">Book Mobile Service</a>
+                </div>
+                <div class="mobile-service-image">
+                    <img src="https://source.unsplash.com/random/800x600/?car,detailing,mobile" alt="Mobile Detailing Service">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section bg-primary">
+        <div class="container text-center">
+            <h2 class="section-title" style="color: var(--text-light);">Ready to Schedule Your Detailing Service?</h2>
+            <p style="color: var(--text-light); max-width: 700px; margin: 0 auto 30px;">Contact us today to book your appointment or request a custom quote for your vehicle's detailing needs.</p>
+            <a href="quote.html" class="btn btn-lg" style="background-color: var(--text-light); color: var(--neutral-dark);">Get Your Free Quote</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <!-- Footer Column 1 - About -->
+                <div>
+                    <a href="index.html" class="footer-logo">Mint</a>
+                    <p class="footer-text">Professional vehicle detailing services with exceptional quality and attention to detail. Experience the difference with Mint Detailing.</p>
+                </div>
+                
+                <!-- Footer Column 2 - Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="footer-link-item"><a href="about.html" class="footer-link">About</a></li>
+                        <li class="footer-link-item"><a href="services.html" class="footer-link">Services</a></li>
+                        <li class="footer-link-item"><a href="gallery.html" class="footer-link">Gallery</a></li>
+                        <li class="footer-link-item"><a href="testimonials.html" class="footer-link">Testimonials</a></li>
+                        <li class="footer-link-item"><a href="service-area.html" class="footer-link">Service Area</a></li>
+                        <li class="footer-link-item"><a href="quote.html" class="footer-link">Get a Quote</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Footer Column 3 - Contact Info -->
+                <div>
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li class="footer-link-item"><i class="fas fa-phone"></i> <a href="tel:1234567890" class="footer-link">(123) 456-7890</a></li>
+                        <li class="footer-link-item"><i class="fas fa-envelope"></i> <a href="mailto:info@mintdetailing.com" class="footer-link">info@mintdetailing.com</a></li>
+                    </ul>
+                    <h4 class="footer-heading" style="margin-top: 20px;">Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">Copyright &copy; <span id="current-year">2023</span> Mint Detailing. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    
+    <!-- Service Area Map Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create map centered on Los Angeles
+            const map = L.map('service-map').setView([34.052235, -118.243683], 10);
+            
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add a marker for the business location
+            const businessMarker = L.marker([34.052235, -118.243683]).addTo(map);
+            businessMarker.bindPopup("<strong>Mint Detailing</strong><br>Los Angeles, CA").openPopup();
+            
+            // Primary service area circle (15 mile radius)
+            const primaryServiceArea = L.circle([34.052235, -118.243683], {
+                color: '#d0e4e1',
+                fillColor: '#d0e4e1',
+                fillOpacity: 0.2,
+                radius: 24140 // 15 miles in meters
+            }).addTo(map);
+            
+            // Extended service area circle (30 mile radius)
+            const extendedServiceArea = L.circle([34.052235, -118.243683], {
+                color: '#a7bbb8',
+                fillColor: '#a7bbb8',
+                fillOpacity: 0.1,
+                radius: 48280 // 30 miles in meters
+            }).addTo(map);
+            
+            // Add hover functionality to service areas
+            primaryServiceArea.bindPopup("Primary Service Area (No Travel Fee)");
+            extendedServiceArea.bindPopup("Extended Service Area (Small Travel Fee)");
+            
+            // Make map responsive
+            window.addEventListener('resize', function() {
+                map.invalidateSize();
+            });
+        });
+    </script>
+</body>
+</html>
